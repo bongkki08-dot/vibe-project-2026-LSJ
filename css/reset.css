@@ -1,0 +1,29 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+}
+
+body,
+h1,
+p {
+  margin: 0;
+}
+
+button,
+a {
+  color: inherit;
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+}

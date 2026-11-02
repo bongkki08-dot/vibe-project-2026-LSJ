@@ -1,0 +1,21 @@
+html {
+  color: var(--c-text);
+  background-color: var(--c-white);
+}
+
+body {
+  min-width: 320px;
+  background-color: var(--c-white);
+  font-family: sans-serif;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 1px solid var(--c-text);
+  outline-offset: 3px;
+}

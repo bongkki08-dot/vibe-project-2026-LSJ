@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>Skin Lab | 데일리 스킨케어</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/main.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="promotion-bar" data-promotion>
+        <div class="inner-box promotion-bar__inner">
+          <div class="promotion-bar__message">
+            <p>공식몰 혜택 안내</p>
+            <button
+              class="promotion-bar__close"
+              type="button"
+              aria-label="혜택 안내 닫기"
+              data-promotion-close
+            >
+              <span aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="inner-box site-header__inner">
+        <nav class="site-header__navigation partition" aria-label="주 메뉴">
+          <div class="site-header__part site-header__part--left">
+            <button class="icon-button" type="button" aria-label="메뉴 열기">
+              <span class="icon icon--menu" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <a class="site-header__logo" href="./" aria-label="Skin Lab 홈">
+            SKIN LAB
+          </a>
+
+          <div class="site-header__part site-header__part--right">
+            <button class="icon-button" type="button" aria-label="검색">
+              <span class="icon icon--search" aria-hidden="true"></span>
+            </button>
+            <button class="icon-button" type="button" aria-label="로그인">
+              <span class="icon icon--account" aria-hidden="true"></span>
+            </button>
+            <button class="icon-button" type="button" aria-label="장바구니">
+              <span class="icon icon--bag" aria-hidden="true"></span>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="inner-box hero__inner">
+          <div class="hero__layout partition">
+            <div class="hero__scene-placeholder" aria-hidden="true"></div>
+
+            <div class="hero__copy">
+              <h1 id="hero-title">매일 피부를 위한<br>부드러운 데일리 케어</h1>
+              <span class="hero__link">자세히 보기</span>
+            </div>
+
+            <div
+              class="hero__product-placeholder"
+              role="img"
+              aria-label="상품 이미지 자리"
+            >
+              <span>상품 이미지</span>
+            </div>
+
+            <span class="hero__arrow hero__arrow--previous" aria-hidden="true"></span>
+            <span class="hero__arrow hero__arrow--next" aria-hidden="true"></span>
+
+            <div class="hero__pagination" aria-hidden="true">
+              <span class="hero__pagination-current"></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"></footer>
+  </body>
+</html>

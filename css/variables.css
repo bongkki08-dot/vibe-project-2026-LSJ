@@ -1,0 +1,17 @@
+:root {
+  --c-text: #404040;
+  --c-text-sub: #555555;
+  --c-text-mute: #666666;
+  --c-black: #000000;
+  --c-white: #ffffff;
+  --c-accent: #008bcc;
+  --c-brand-blue: #3168a8;
+
+  /* Keep site measurements unset until they are confirmed. */
+  --ff-base: ;
+  --fs-title: ;
+  --fs-menu: ;
+  --fs-promotion: ;
+  --header-height: ;
+  --hero-copy-inset: ;
+}

@@ -1,0 +1,48 @@
+.inner-box {
+  width: 100%;
+  max-width: 1600px;
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+.partition {
+  display: flex;
+}
+
+.site-header {
+  width: 100%;
+  background-color: var(--c-white);
+}
+
+.site-header__inner {
+  padding-inline: 48px;
+}
+
+.site-header__navigation {
+  position: relative;
+  min-height: var(--header-height);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero {
+  position: relative;
+  height: min(913px, 48vw);
+  background-color: var(--c-white);
+}
+
+.hero__inner {
+  height: 100%;
+  padding-inline: 48px;
+}
+
+.hero__layout {
+  position: relative;
+  height: 100%;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.site-footer {
+  background-color: var(--c-white);
+}

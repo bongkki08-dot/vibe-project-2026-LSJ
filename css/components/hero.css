@@ -1,0 +1,87 @@
+.hero__scene-placeholder {
+  position: absolute;
+  inset: 0;
+  border-block: 1px solid var(--c-text-sub);
+}
+
+.hero__copy {
+  position: relative;
+  z-index: 1;
+  padding-bottom: var(--hero-copy-inset);
+}
+
+.hero__copy h1 {
+  margin-bottom: 16px;
+  color: var(--c-text);
+  font-weight: 700;
+}
+
+.hero__link {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 12px;
+  color: var(--c-white);
+  background-color: var(--c-text);
+}
+
+.hero__product-placeholder {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 16%;
+  height: 87%;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--c-text-sub);
+  color: var(--c-text-mute);
+  background-color: var(--c-white);
+  text-align: center;
+}
+
+.hero__arrow {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-top: 1px solid var(--c-text-sub);
+  border-right: 1px solid var(--c-text-sub);
+}
+
+.hero__arrow--previous {
+  left: 0;
+  transform: rotate(-135deg);
+}
+
+.hero__arrow--next {
+  right: 0;
+  transform: rotate(45deg);
+}
+
+.hero__pagination {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 16px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.hero__pagination span {
+  width: 6px;
+  height: 6px;
+  border: 1px solid var(--c-text-mute);
+  border-radius: 50%;
+}
+
+.hero__pagination .hero__pagination-current {
+  width: 20px;
+  border-color: var(--c-text);
+  border-radius: 10px;
+  background-color: var(--c-text);
+}
