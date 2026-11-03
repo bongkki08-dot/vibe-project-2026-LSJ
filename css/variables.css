@@ -7,11 +7,11 @@
   --c-accent: #008bcc;
   --c-brand-blue: #3168a8;
 
-  /* Keep site measurements unset until they are confirmed. */
+  /* Keep measurements without a reliable screenshot reference unset. */
   --ff-base: ;
-  --fs-title: ;
+  --fs-title: 28px;
+  --fs-title-mobile: 16px;
   --fs-menu: ;
   --fs-promotion: ;
   --header-height: ;
-  --hero-copy-inset: ;
 }

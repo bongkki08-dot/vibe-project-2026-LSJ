@@ -29,7 +29,14 @@
       <div class="inner-box site-header__inner">
         <nav class="site-header__navigation partition" aria-label="주 메뉴">
           <div class="site-header__part site-header__part--left">
-            <button class="icon-button" type="button" aria-label="메뉴 열기">
+            <button
+              class="icon-button"
+              type="button"
+              aria-label="메뉴 열기"
+              aria-expanded="false"
+              aria-controls="side-menu-dialog"
+              data-side-menu-open
+            >
               <span class="icon icon--menu" aria-hidden="true"></span>
             </button>
           </div>
@@ -53,35 +60,267 @@
       </div>
     </header>
 
+    <div class="side-menu-layer" data-side-menu hidden>
+      <button
+        class="side-menu-backdrop"
+        type="button"
+        aria-label="메뉴 닫기"
+        tabindex="-1"
+        data-side-menu-backdrop
+      ></button>
+      <aside
+        class="side-menu"
+        id="side-menu-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="side-menu-title"
+        aria-hidden="true"
+        inert
+        data-side-menu-panel
+      >
+        <div class="side-menu__header">
+          <div class="side-menu__account">
+            <p class="side-menu__title" id="side-menu-title">로그인 후 이용하세요</p>
+            <p class="side-menu__description">회원가입 후 다양한 혜택 받아가세요</p>
+            <div class="side-menu__account-actions">
+              <button class="side-menu__login" type="button">로그인</button>
+              <button class="side-menu__signup" type="button">회원가입</button>
+            </div>
+          </div>
+          <button
+            class="side-menu__close"
+            type="button"
+            aria-label="메뉴 닫기"
+            data-side-menu-close
+          >
+            <span aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <nav class="side-menu__content" aria-label="사이트 메뉴">
+          <ul class="side-menu__categories">
+            <li class="side-menu__category">
+              <button
+                class="side-menu__accordion"
+                type="button"
+                aria-expanded="true"
+                aria-controls="side-menu-brand"
+                data-menu-accordion
+              >
+                <span>BRAND</span>
+                <span class="side-menu__chevron" aria-hidden="true"></span>
+              </button>
+              <ul class="side-menu__subcategories" id="side-menu-brand">
+                <li><a href="#story">STORY</a></li>
+                <li><a href="#mission">MISSION</a></li>
+                <li><a href="#product">PRODUCT</a></li>
+                <li><a href="#membership">MEMBERSHIP</a></li>
+              </ul>
+            </li>
+            <li class="side-menu__category">
+              <button
+                class="side-menu__accordion"
+                type="button"
+                aria-expanded="true"
+                aria-controls="side-menu-all"
+                data-menu-accordion
+              >
+                <span>ALL</span>
+                <span class="side-menu__chevron" aria-hidden="true"></span>
+              </button>
+              <ul class="side-menu__subcategories" id="side-menu-all">
+                <li><a href="#toner-mist">토너/미스트</a></li>
+                <li><a href="#serum-ampoule">세럼/앰플</a></li>
+                <li><a href="#lotion-cream">로션/크림</a></li>
+                <li><a href="#pad-mask">패드/마스크</a></li>
+                <li><a href="#cleansing">클렌징</a></li>
+                <li><a href="#makeup-suncare">메이크업/선케어</a></li>
+                <li><a href="#sets">세트상품</a></li>
+              </ul>
+            </li>
+            <li class="side-menu__category">
+              <a class="side-menu__standalone" href="#best">베스트</a>
+            </li>
+            <li class="side-menu__category">
+              <button
+                class="side-menu__accordion"
+                type="button"
+                aria-expanded="true"
+                aria-controls="side-menu-lines"
+                data-menu-accordion
+              >
+                <span>라인별 제품</span>
+                <span class="side-menu__chevron" aria-hidden="true"></span>
+              </button>
+              <ul class="side-menu__subcategories" id="side-menu-lines">
+                <li><a href="#oligo-hyaluronic">올리고 히알루론산 (수분)</a></li>
+                <li><a href="#green-flavonoid">그린 플라보노이드 (진정)</a></li>
+                <li><a href="#prebiotic-cera">프리바이오틱세라 (장벽)</a></li>
+                <li><a href="#expert-rue">엑스퍼트루 (탄력/미백)</a></li>
+                <li><a href="#blue-clay">블루클레이 (모공)</a></li>
+              </ul>
+            </li>
+            <li class="side-menu__category">
+              <a class="side-menu__standalone" href="#events">이벤트</a>
+            </li>
+          </ul>
+
+          <div class="side-menu__community">
+            <h2>COMMUNITY</h2>
+            <ul>
+              <li><a href="#notices">공지사항</a></li>
+              <li><a href="#faq">자주 묻는 질문</a></li>
+            </ul>
+          </div>
+        </nav>
+      </aside>
+    </div>
+
     <main>
-      <section class="hero" aria-labelledby="hero-title">
+      <section class="hero" aria-label="추천 제품">
         <div class="inner-box hero__inner">
-          <div class="hero__layout partition">
-            <div class="hero__scene-placeholder" aria-hidden="true"></div>
-
-            <div class="hero__copy">
-              <h1 id="hero-title">매일 피부를 위한<br>부드러운 데일리 케어</h1>
-              <span class="hero__link">자세히 보기</span>
-            </div>
-
-            <div
-              class="hero__product-placeholder"
-              role="img"
-              aria-label="상품 이미지 자리"
+          <div class="hero__layout partition" data-hero-carousel>
+            <article
+              class="hero__slide is-active"
+              role="group"
+              aria-roledescription="슬라이드"
+              aria-label="1 / 4"
+              data-hero-slide
             >
-              <span>상품 이미지</span>
-            </div>
+              <div class="hero__visual" role="img" aria-label="블루 클레이 마스크 제품 배너">
+                <picture>
+                  <source
+                    media="(max-width: 640px)"
+                    srcset="./images/used/mob_8f4b1698d6957b294e518cbe62bddd93.webp"
+                  >
+                  <img
+                    src="./images/used/dt_72cf80038201f60d115f6ae10b2d7eea.jpg"
+                    alt=""
+                    fetchpriority="high"
+                  >
+                </picture>
+              </div>
+              <div class="hero__copy">
+                <h1>맑고 산뜻한 피부결을 위한<br>클레이 마스크 케어</h1>
+                <button class="hero__link" type="button">More View</button>
+              </div>
+            </article>
 
-            <span class="hero__arrow hero__arrow--previous" aria-hidden="true"></span>
-            <span class="hero__arrow hero__arrow--next" aria-hidden="true"></span>
+            <article
+              class="hero__slide"
+              role="group"
+              aria-roledescription="슬라이드"
+              aria-label="2 / 4"
+              data-hero-slide
+              hidden
+            >
+              <div class="hero__visual" role="img" aria-label="수분 젤리 미스트 제품 배너">
+                <picture>
+                  <source
+                    media="(max-width: 640px)"
+                    srcset="./images/used/mob_eb7aacd5aafc68c8075130e10291654d.webp"
+                  >
+                  <img
+                    src="./images/used/dt_12f453b931b1c26f9b3196afde8ffa0d.webp"
+                    alt=""
+                    loading="lazy"
+                  >
+                </picture>
+              </div>
+              <div class="hero__copy">
+                <h1>수분을 가볍게 채우는<br>젤리 미스트</h1>
+                <button class="hero__link" type="button">More View</button>
+              </div>
+            </article>
 
-            <div class="hero__pagination" aria-hidden="true">
-              <span class="hero__pagination-current"></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
+            <article
+              class="hero__slide"
+              role="group"
+              aria-roledescription="슬라이드"
+              aria-label="3 / 4"
+              data-hero-slide
+              hidden
+            >
+              <div class="hero__visual" role="img" aria-label="그린 플라보노이드 패드 제품 배너">
+                <picture>
+                  <source
+                    media="(max-width: 640px)"
+                    srcset="./images/used/mob_35aec6f082662398a45eb01acd65edc5.png"
+                  >
+                  <img
+                    src="./images/used/dt_1b8cce9556991156d23db92d751db0e7.jpg"
+                    alt=""
+                    loading="lazy"
+                  >
+                </picture>
+              </div>
+              <div class="hero__copy">
+                <h1>매일 간편하게 즐기는<br>진정 패드 케어</h1>
+                <button class="hero__link" type="button">More View</button>
+              </div>
+            </article>
+
+            <article
+              class="hero__slide"
+              role="group"
+              aria-roledescription="슬라이드"
+              aria-label="4 / 4"
+              data-hero-slide
+              hidden
+            >
+              <div class="hero__visual" role="img" aria-label="히알루론산 로션 제품 배너">
+                <picture>
+                  <source
+                    media="(max-width: 640px)"
+                    srcset="./images/used/mob_cafe882f945584af91534bb253529e72.jpg"
+                  >
+                  <img
+                    src="./images/used/dt_852f27e81e5b0321db609605a711ed8e.jpg"
+                    alt=""
+                    loading="lazy"
+                  >
+                </picture>
+              </div>
+              <div class="hero__copy">
+                <h1>피부에 편안함을 더하는<br>데일리 보습 케어</h1>
+                <button class="hero__link" type="button">More View</button>
+              </div>
+            </article>
+
+            <button
+              class="hero__arrow hero__arrow--previous"
+              type="button"
+              aria-label="이전 슬라이드"
+              data-hero-previous
+            ></button>
+            <button
+              class="hero__arrow hero__arrow--next"
+              type="button"
+              aria-label="다음 슬라이드"
+              data-hero-next
+            ></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="hero-utilities" aria-label="메인 비주얼 고정 도구">
+        <div class="inner-box hero-utilities__inner">
+          <div class="hero-utilities__layout partition">
+            <nav class="hero__pagination" aria-label="슬라이드 선택">
+              <button
+                class="is-active"
+                type="button"
+                aria-label="슬라이드 1"
+                aria-current="true"
+                data-hero-indicator="0"
+              ></button>
+              <button type="button" aria-label="슬라이드 2" data-hero-indicator="1"></button>
+              <button type="button" aria-label="슬라이드 3" data-hero-indicator="2"></button>
+              <button type="button" aria-label="슬라이드 4" data-hero-indicator="3"></button>
+            </nav>
+            <button class="hero__social" type="button" aria-label="카카오톡 상담">
+              <img src="./images/used/e5aae97aa62ee3721a1fedd69f10662e.png" alt="">
+            </button>
           </div>
         </div>
       </section>
