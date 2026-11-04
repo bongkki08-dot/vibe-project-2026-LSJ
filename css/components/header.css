@@ -13,7 +13,7 @@
   align-items: center;
   justify-content: center;
   padding-block: 4px;
-  font-size: var(--fs-promotion);
+  font-size: 12px;
   font-weight: 600;
 }
 
@@ -70,7 +70,7 @@
 
 .site-header__logo img {
   display: block;
-  width: 180px;
+  width: 220px;
   height: auto;
 }
 

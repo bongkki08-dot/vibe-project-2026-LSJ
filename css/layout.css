@@ -25,7 +25,7 @@
 
 .site-header__navigation {
   position: relative;
-  min-height: var(--header-height);
+  min-height: 40px;
   align-items: center;
   justify-content: space-between;
 }

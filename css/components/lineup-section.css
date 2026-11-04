@@ -1,0 +1,249 @@
+.lineup-section {
+  padding-block: 0 80px;
+  background-color: var(--c-white);
+}
+
+.lineup-section__inner {
+  padding-inline: 48px;
+}
+
+.lineup__viewport {
+  position: relative;
+}
+
+.lineup__track {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.lineup__category {
+  min-width: 0;
+  flex: 1 1 0;
+}
+
+.lineup__banner {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  color: var(--c-text);
+  text-decoration: none;
+}
+
+.lineup__banner::after {
+  position: absolute;
+  inset: 62% 0 0;
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.96));
+  content: "";
+}
+
+.lineup__banner > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lineup__banner-copy {
+  position: absolute;
+  z-index: 1;
+  right: 16px;
+  bottom: 14px;
+  left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.lineup__banner-copy strong {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.lineup__banner-copy > span {
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.lineup__products {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lineup__product {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.lineup__product-image {
+  display: block;
+  width: 100px;
+  height: 100px;
+  flex: 0 0 100px;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+}
+
+.lineup__product-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lineup__product-info {
+  min-width: 0;
+  padding-top: 2px;
+}
+
+.lineup__product-name {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--c-text);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.lineup__product-pricing {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 5px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.lineup__price-original {
+  color: #999999;
+  text-decoration: line-through;
+}
+
+.lineup__price-sale {
+  color: var(--c-text);
+}
+
+.lineup__price-discount {
+  color: #e53e3e;
+}
+
+.lineup__arrow {
+  display: none !important;
+}
+
+.lineup__arrow[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .lineup-section {
+    padding-bottom: 60px;
+  }
+
+  .lineup-section__inner {
+    padding-inline: 16px;
+  }
+
+  .lineup__viewport {
+    overflow: visible;
+  }
+
+  .lineup__track {
+    width: 100%;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .lineup__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .lineup__category {
+    min-width: 0;
+    flex: 0 0 calc((100% - 12px) / 2);
+    scroll-snap-align: start;
+  }
+
+  .lineup__banner {
+    border-radius: 14px;
+  }
+
+  .lineup__banner-copy {
+    right: 12px;
+    bottom: 10px;
+    left: 12px;
+    gap: 2px;
+  }
+
+  .lineup__banner-copy strong {
+    font-size: clamp(12px, 2.2vw, 15px);
+  }
+
+  .lineup__banner-copy > span {
+    font-size: clamp(10px, 1.8vw, 13px);
+  }
+
+  .lineup__products {
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .lineup__product {
+    gap: 12px;
+  }
+
+  .lineup__product-image {
+    width: clamp(64px, 15vw, 100px);
+    height: clamp(64px, 15vw, 100px);
+    flex-basis: clamp(64px, 15vw, 100px);
+    border-radius: 9px;
+  }
+
+  .lineup__product-info {
+    padding-top: 1px;
+  }
+
+  .lineup__product-name {
+    margin-bottom: 5px;
+    font-size: clamp(11px, 2.1vw, 14px);
+    line-height: 1.35;
+  }
+
+  .lineup__product-pricing {
+    gap: 4px;
+    font-size: clamp(10px, 1.9vw, 13px);
+  }
+
+  .lineup__arrow {
+    top: clamp(48px, 18vw, 120px) !important;
+    z-index: 2;
+    display: flex !important;
+  }
+
+  .lineup__arrow[hidden] {
+    display: none !important;
+  }
+
+  .lineup__arrow--previous {
+    left: 8px !important;
+  }
+
+  .lineup__arrow--next {
+    right: 8px !important;
+  }
+}

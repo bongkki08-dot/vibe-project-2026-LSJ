@@ -163,10 +163,10 @@ if (
 if (typeof Swiper !== "undefined" && document.querySelector(".hero-swiper")) {
   const heroSwiper = new Swiper(".hero-swiper", {
     loop: true,
-    speed: 600,
+    speed: 1200,
     grabCursor: true,
     autoplay: {
-      delay: 4500,
+      delay: 18000,
       disableOnInteraction: false,
     },
     navigation: {
@@ -250,10 +250,54 @@ if (categoryTrack) {
 }
 
 /* ==========================================================================
+   Product Lineup Carousel (Mobile)
+   ========================================================================== */
+const lineupViewport = document.querySelector("[data-lineup-viewport]");
+const lineupTrack = document.querySelector("[data-lineup-track]");
+const lineupPrevious = document.querySelector("[data-lineup-previous]");
+const lineupNext = document.querySelector("[data-lineup-next]");
+
+if (lineupViewport && lineupTrack && lineupPrevious && lineupNext) {
+  const lineupMobileQuery = window.matchMedia("(max-width: 768px)");
+
+  const updateLineupArrows = () => {
+    if (!lineupMobileQuery.matches) {
+      lineupPrevious.hidden = true;
+      lineupNext.hidden = true;
+      return;
+    }
+
+    const maxScroll = lineupTrack.scrollWidth - lineupTrack.clientWidth;
+    const atStart = lineupTrack.scrollLeft <= 1;
+    const atEnd = lineupTrack.scrollLeft >= maxScroll - 1;
+
+    lineupPrevious.hidden = atStart;
+    lineupNext.hidden = atEnd;
+  };
+
+  lineupPrevious.addEventListener("click", () => {
+    const cardWidth = lineupTrack.querySelector(".lineup__category").getBoundingClientRect().width;
+    const gap = Number.parseFloat(window.getComputedStyle(lineupTrack).columnGap) || 0;
+    lineupTrack.scrollBy({ left: -(cardWidth + gap), behavior: "smooth" });
+  });
+
+  lineupNext.addEventListener("click", () => {
+    const cardWidth = lineupTrack.querySelector(".lineup__category").getBoundingClientRect().width;
+    const gap = Number.parseFloat(window.getComputedStyle(lineupTrack).columnGap) || 0;
+    lineupTrack.scrollBy({ left: cardWidth + gap, behavior: "smooth" });
+  });
+
+  lineupTrack.addEventListener("scroll", updateLineupArrows, { passive: true });
+  lineupMobileQuery.addEventListener("change", updateLineupArrows);
+  updateLineupArrows();
+}
+
+/* ==========================================================================
    NEW & BEST Tabs Filtering
    ========================================================================== */
 const productTabs = document.querySelectorAll("[data-filter-tab]");
 const productCards = document.querySelectorAll(".product-card");
+const moreViewButton = document.querySelector("[data-product-more]");
 let currentFilter = "all";
 let moreViewRevealed = false;
 
@@ -283,6 +327,11 @@ productTabs.forEach((tab) => {
     tab.classList.add("is-active");
     tab.setAttribute("aria-selected", "true");
     currentFilter = tab.getAttribute("data-filter-tab");
+    if (moreViewButton) {
+      const isSetFilter = currentFilter === "set";
+      moreViewButton.classList.toggle("more-view-button--set", isSetFilter);
+      moreViewButton.textContent = isSetFilter ? "More +" : "More View";
+    }
     applyProductFilter();
   });
 });
@@ -290,8 +339,6 @@ productTabs.forEach((tab) => {
 /* ==========================================================================
    More View Button Click Handling
    ========================================================================== */
-const moreViewButton = document.querySelector("[data-product-more]");
-
 if (moreViewButton) {
   moreViewButton.addEventListener("click", () => {
     // 1. Immediately update button state to indicate click / hover color feedback
@@ -311,9 +358,8 @@ if (moreViewButton) {
 }
 
 /* ==========================================================================
-   Right-side Page Indicator & Full-page Scroll Sync
+   Hero Pagination Visibility on Scroll
    ========================================================================== */
-const pageDots = document.querySelectorAll("[data-page-target]");
 const sections = [
   document.getElementById("hero-section"),
   document.getElementById("products-section"),
@@ -331,10 +377,6 @@ function updatePageIndicator() {
     }
   });
 
-  pageDots.forEach((dot, idx) => {
-    dot.classList.toggle("is-active", idx === activePageIndex);
-  });
-
   // When on Page 2 (products section), hide the hero bottom pagination
   if (heroPagination) {
     if (activePageIndex >= 1) {
@@ -350,13 +392,3 @@ function updatePageIndicator() {
 
 window.addEventListener("scroll", updatePageIndicator, { passive: true });
 updatePageIndicator();
-
-pageDots.forEach((dot) => {
-  dot.addEventListener("click", () => {
-    const targetIdx = Number(dot.getAttribute("data-page-target"));
-    const targetSection = sections[targetIdx];
-    if (targetSection) {
-      targetSection.scrollIntoView({ behavior: "smooth" });
-    }
-  });
-});

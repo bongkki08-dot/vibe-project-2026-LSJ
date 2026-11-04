@@ -46,8 +46,8 @@
 .hero__copy {
   position: absolute;
   z-index: 2;
-  bottom: 8%;
-  left: 5%;
+  bottom: 17.5%;
+  left: 5.65%;
   color: var(--c-text);
   pointer-events: auto;
 }
@@ -55,16 +55,16 @@
 .hero__title {
   margin: 0 0 6px;
   color: #333333;
-  font-size: var(--fs-title, 28px);
+  font-size: 32px;
   font-weight: 700;
   line-height: 1.3;
   letter-spacing: -0.02em;
 }
 
 .hero__subtitle {
-  margin: 0 0 20px;
+  margin: 0 0 16px;
   color: #333333;
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 600;
   line-height: 1.3;
   letter-spacing: -0.02em;
@@ -72,15 +72,15 @@
 
 .hero__link {
   display: inline-flex;
-  min-height: 34px;
+  min-height: 30px;
   align-items: center;
   justify-content: center;
-  padding: 0 16px;
+  padding: 0 11px;
   border: 0;
   border-radius: 4px;
   color: var(--c-white);
   background-color: #404040;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
@@ -100,24 +100,29 @@
   display: flex !important;
   align-items: center;
   justify-content: center;
-  width: 32px !important;
-  height: 32px !important;
+  width: 36px !important;
+  height: 38px !important;
   margin-top: 0 !important;
   padding: 0;
-  border: 1px solid rgba(0, 0, 0, 0.15) !important;
-  border-radius: 6px !important;
+  border: 0 !important;
+  border-radius: 10px !important;
   color: #404040 !important;
-  background-color: rgba(255, 255, 255, 0.75) !important;
-  backdrop-filter: blur(4px);
+  background: transparent !important;
   cursor: pointer;
   transform: translateY(-50%);
-  transition: background-color 200ms ease, transform 150ms ease, box-shadow 200ms ease;
+  transition: color 200ms ease, background-color 200ms ease;
 }
 
 .hero__arrow:hover {
-  background-color: #ffffff !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transform: translateY(-50%) scale(1.05);
+  color: var(--c-white) !important;
+  background-color: var(--c-text) !important;
+}
+
+.hero__arrow:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  color: var(--c-white) !important;
+  background-color: var(--c-text) !important;
 }
 
 .hero__arrow::after {
@@ -126,15 +131,15 @@
 
 .hero__arrow::before {
   display: block;
-  width: 8px;
-  height: 8px;
-  border-top: 2px solid #555555;
-  border-right: 2px solid #555555;
+  width: 14px;
+  height: 14px;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
   content: "";
 }
 
 .hero__arrow--previous {
-  left: 16px !important;
+  left: 24px !important;
   right: auto !important;
 }
 
@@ -144,7 +149,7 @@
 }
 
 .hero__arrow--next {
-  right: 16px !important;
+  right: 24px !important;
   left: auto !important;
 }
 
@@ -195,12 +200,13 @@
 .floating-controls {
   position: fixed;
   z-index: 90;
-  right: 24px;
-  bottom: 28px;
+  right: 20px;
+  bottom: 16px;
   display: flex;
+  width: 56px;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  align-items: flex-end;
+  gap: 8px;
   pointer-events: auto;
 }
 
@@ -219,31 +225,31 @@
 }
 
 .floating-btn--chat {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  border-radius: 24px;
   background-color: #ffffff;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
 }
 
 .floating-btn--kakao {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background-color: #fae100;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 .floating-btn--kakao img {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   object-fit: contain;
 }
 
 .floating-btn--top,
 .floating-btn--down {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border: 1px solid #dcdcdc;
   border-radius: 4px;
   background-color: #ffffff;
@@ -270,17 +276,31 @@
     height: auto;
   }
 
+  .hero-swiper .swiper-wrapper {
+    height: auto;
+  }
+
   .hero__slide {
     display: flex;
     flex-direction: column;
     height: auto;
+    min-height: 0;
+    align-self: flex-start;
   }
 
   .hero__visual {
     position: relative;
     inset: auto;
+    flex: 0 0 auto;
     width: 100%;
+    height: auto;
     aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+
+  .hero__visual picture {
+    position: absolute;
+    inset: 0;
   }
 
   .hero__visual img {
@@ -290,8 +310,12 @@
   .hero__copy {
     position: relative;
     inset: auto;
+    display: block;
+    flex: 0 0 auto;
+    width: 100%;
     padding: 24px 20px 16px;
     background-color: var(--c-white);
+    box-sizing: border-box;
   }
 
   .hero__title {
@@ -305,14 +329,17 @@
   }
 
   .hero__link {
-    min-height: 32px;
+    min-height: 30px;
     font-size: 12px;
   }
 
   .hero__arrow {
-    top: calc(50vw - 16px) !important;
-    width: 28px !important;
-    height: 28px !important;
+    top: calc(50vw - 24px) !important;
+  }
+
+  .hero__arrow::before {
+    width: 12px;
+    height: 12px;
   }
 
   .hero__arrow--previous {
@@ -331,19 +358,4 @@
     margin: 8px auto 20px !important;
   }
 
-  .floating-controls {
-    right: 14px;
-    bottom: 20px;
-    gap: 8px;
-  }
-
-  .floating-btn--chat {
-    width: 40px;
-    height: 40px;
-  }
-
-  .floating-btn--kakao {
-    width: 32px;
-    height: 32px;
-  }
 }

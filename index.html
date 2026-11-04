@@ -316,8 +316,8 @@
       <!-- 우측 하단 고정 제어 버튼 (실시간 문의, 카카오톡, 상하 스크롤 이동) -->
       <aside class="floating-controls" aria-label="빠른 도구">
         <button class="floating-btn floating-btn--chat" type="button" aria-label="실시간 문의">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z" fill="#555555"/>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3.2c-5.3 0-9.6 3.1-9.6 7.1 0 2.1 1.3 4 3.4 5.3-.2 1.4-.8 2.5-1.6 3.4 2.2.1 4.1-.6 5.5-1.8.8.2 1.6.3 2.4.3 5.3 0 9.6-3.1 9.6-7.1S17.3 3.2 12 3.2Z" fill="#666666"/>
             <circle cx="8" cy="10" r="1.5" fill="#ffffff"/>
             <circle cx="12" cy="10" r="1.5" fill="#ffffff"/>
             <circle cx="16" cy="10" r="1.5" fill="#ffffff"/>
@@ -563,11 +563,167 @@
         </div>
       </section>
 
-      <!-- 오른쪽 페이지 인디케이터 (흰색으로 현재 위치 표시) -->
-      <nav class="page-indicator" aria-label="페이지 위치 인디케이터">
-        <button type="button" class="page-indicator__dot is-active" aria-label="1페이지 (메인 비주얼)" data-page-target="0"></button>
-        <button type="button" class="page-indicator__dot" aria-label="2페이지 (카테고리 및 추천 상품)" data-page-target="1"></button>
-      </nav>
+      <section class="lineup-section" id="lineup-section" aria-label="브랜드 라인별 제품">
+        <div class="inner-box lineup-section__inner">
+          <div class="lineup__viewport" data-lineup-viewport role="region" aria-roledescription="carousel" aria-label="브랜드 라인 상품 슬라이더">
+            <div class="lineup__track" data-lineup-track>
+              <article class="lineup__category" aria-label="올리고 히알루론산 라인">
+                <a class="lineup__banner" href="#oligo-hyaluronic-line">
+                  <img src="./images/img-dt/dt_1ac6c7bf090e417018e4a2e0407c0855.jpg" alt="올리고 히알루론산 라인 제품">
+                  <span class="lineup__banner-copy">
+                    <strong>올리고 히알루론산 라인</strong>
+                    <span>더 깊게 채우는 속수분 케어</span>
+                  </span>
+                </a>
+                <ul class="lineup__products">
+                  <li class="lineup__product">
+                    <a class="lineup__product-image" href="#capsule-jelly-mist">
+                      <img src="./images/img-dt/dt_2acef7046e9f5c3b17f33c671f433929.jpg" alt="올리고 히알루론산 캡슐 젤리 미스트">
+                    </a>
+                    <div class="lineup__product-info">
+                      <a class="lineup__product-name" href="#capsule-jelly-mist">올리고 히알루론산 캡슐 젤리 미스트 120ml</a>
+                      <p class="lineup__product-pricing">
+                        <span class="lineup__price-original">26,000원</span>
+                        <span class="lineup__price-sale">18,900원</span>
+                        <span class="lineup__price-discount">27%</span>
+                      </p>
+                    </div>
+                  </li>
+                  <li class="lineup__product">
+                    <a class="lineup__product-image" href="#deep-toner">
+                      <img src="./images/img-dt/dt_6bfae46c9ae59fe41189baad4b77aad9.jpg" alt="올리고 히알루론산 딥 토너">
+                    </a>
+                    <div class="lineup__product-info">
+                      <a class="lineup__product-name" href="#deep-toner">올리고 히알루론산 딥 토너 500ml</a>
+                      <p class="lineup__product-pricing">
+                        <span class="lineup__price-original">37,000원</span>
+                        <span class="lineup__price-sale">28,900원</span>
+                        <span class="lineup__price-discount">22%</span>
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </article>
+
+              <article class="lineup__category" aria-label="그린 플라보노이드 라인">
+                <a class="lineup__banner" href="#green-flavonoid-line">
+                  <img src="./images/img-dt/dt_99b6c2b7a58c0c4360acf5b2a1cb1018.jpg" alt="그린 플라보노이드 라인 제품">
+                  <span class="lineup__banner-copy">
+                    <strong>그린 플라보노이드 라인</strong>
+                    <span>민감피부/여드름피부 급속 진정케어</span>
+                  </span>
+                </a>
+                <ul class="lineup__products">
+                  <li class="lineup__product">
+                    <a class="lineup__product-image" href="#green-pad">
+                      <img src="./images/img-dt/dt_24957ffcb5f8f3a5751b435ab91323c9.png" alt="그린 플라보노이드 2.5 패드">
+                    </a>
+                    <div class="lineup__product-info">
+                      <a class="lineup__product-name" href="#green-pad">그린 플라보노이드 2.5 패드 90매</a>
+                      <p class="lineup__product-pricing">
+                        <span class="lineup__price-original">23,000원</span>
+                        <span class="lineup__price-sale">18,400원</span>
+                        <span class="lineup__price-discount">20%</span>
+                      </p>
+                    </div>
+                  </li>
+                  <li class="lineup__product">
+                    <a class="lineup__product-image" href="#green-cream">
+                      <img src="./images/img-dt/dt_e85799c5d609026cd71ff13276d015fd.png" alt="그린 플라보노이드 3.0 크림">
+                    </a>
+                    <div class="lineup__product-info">
+                      <a class="lineup__product-name" href="#green-cream">그린 플라보노이드 3.0 크림 50ml</a>
+                      <p class="lineup__product-pricing">
+                        <span class="lineup__price-original">25,000원</span>
+                        <span class="lineup__price-sale">19,500원</span>
+                        <span class="lineup__price-discount">22%</span>
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </article>
+
+              <article class="lineup__category" aria-label="선케어 라인">
+                <a class="lineup__banner" href="#suncare-line">
+                  <img src="./images/img-dt/dt_7abe864902fc510b3805e273ee5b49c9.jpg" alt="선케어 라인 제품">
+                  <span class="lineup__banner-copy">
+                    <strong>선케어 라인</strong>
+                    <span>촉촉하고 산뜻한 수분선케어</span>
+                  </span>
+                </a>
+                <ul class="lineup__products">
+                  <li class="lineup__product">
+                    <a class="lineup__product-image" href="#green-sun">
+                      <img src="./images/img-dt/dt_83e3c61599af0c4f751f2e1d0435c905.png" alt="그린 플라보노이드 2.0 선">
+                    </a>
+                    <div class="lineup__product-info">
+                      <a class="lineup__product-name" href="#green-sun">그린 플라보노이드 2.0 선 40ml</a>
+                      <p class="lineup__product-pricing">
+                        <span class="lineup__price-original">25,000원</span>
+                        <span class="lineup__price-sale">18,200원</span>
+                        <span class="lineup__price-discount">27%</span>
+                      </p>
+                    </div>
+                  </li>
+                  <li class="lineup__product">
+                    <a class="lineup__product-image" href="#sun-essence">
+                      <img src="./images/img-dt/dt_08a022083684a9d570c54581451d500e.jpg" alt="올리고 히알루론산 선 에센스">
+                    </a>
+                    <div class="lineup__product-info">
+                      <a class="lineup__product-name" href="#sun-essence">올리고 히알루론산 선 에센스 40ml</a>
+                      <p class="lineup__product-pricing">
+                        <span class="lineup__price-original">24,000원</span>
+                        <span class="lineup__price-sale">19,200원</span>
+                        <span class="lineup__price-discount">20%</span>
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </article>
+            </div>
+
+            <button class="hero__arrow hero__arrow--previous lineup__arrow lineup__arrow--previous" type="button" aria-label="이전 라인 보기" data-lineup-previous hidden></button>
+            <button class="hero__arrow hero__arrow--next lineup__arrow lineup__arrow--next" type="button" aria-label="다음 라인 보기" data-lineup-next></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="kakao-promo-section" aria-label="카카오톡 친구 혜택">
+        <div class="inner-box kakao-promo-section__inner">
+          <div class="kakao-promo__card">
+            <img
+              class="kakao-promo__image"
+              src="./images/img-dt/dt_fb58fd6315622365541a42de1c5e9bc2.jpg"
+              alt="카카오톡 채널 친구 추가 시 3천원 할인 쿠폰"
+              loading="lazy"
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="brand-film-section" aria-labelledby="brand-film-title">
+        <div class="inner-box brand-film-section__inner">
+          <div class="brand-film__layout">
+            <div class="brand-film__media">
+              <iframe
+                class="brand-film__video"
+                src="https://www.youtube-nocookie.com/embed/wmjFzQPZ9tU?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=wmjFzQPZ9tU&amp;controls=0&amp;playsinline=1&amp;rel=0"
+                title="각질 20층을 넘어 더 딥하게 채우는 #속보습토너 (30초)"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                referrerpolicy="strict-origin-when-cross-origin"
+              ></iframe>
+            </div>
+            <div class="brand-film__copy">
+              <p class="brand-film__eyebrow">THE LAB by BLANC DOUX</p>
+              <h2 class="brand-film__title" id="brand-film-title">각질 20층을 넘어 더 딥하게 채우는 #속보습토너</h2>
+              <p class="brand-film__description">
+                속보습 토너 소개 영상 · 30초
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </main>
 
     <footer class="site-footer"></footer>
