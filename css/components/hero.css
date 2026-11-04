@@ -1,7 +1,9 @@
 .hero {
   position: relative;
-  height: min(913px, 48vw);
+  height: min(913px, 49vw);
+  min-height: 560px;
   background-color: var(--c-white);
+  overflow: hidden;
 }
 
 .hero__inner {
@@ -10,18 +12,17 @@
   padding: 0;
 }
 
-.hero__layout {
+.hero-swiper {
   position: relative;
+  width: 100%;
   height: 100%;
 }
 
 .hero__slide {
-  position: absolute;
-  inset: 0;
-}
-
-.hero__slide[hidden] {
-  display: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .hero__visual,
@@ -44,199 +45,305 @@
 
 .hero__copy {
   position: absolute;
-  z-index: 1;
-  bottom: 3%;
+  z-index: 2;
+  bottom: 8%;
   left: 5%;
   color: var(--c-text);
+  pointer-events: auto;
 }
 
-.hero__copy h1 {
-  margin: 0 0 16px;
-  color: inherit;
-  font-size: var(--fs-title);
+.hero__title {
+  margin: 0 0 6px;
+  color: #333333;
+  font-size: var(--fs-title, 28px);
   font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.hero__subtitle {
+  margin: 0 0 20px;
+  color: #333333;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
 }
 
 .hero__link {
   display: inline-flex;
-  min-height: 32px;
+  min-height: 34px;
   align-items: center;
   justify-content: center;
-  padding-inline: 12px;
+  padding: 0 16px;
   border: 0;
-  border-radius: 3px;
+  border-radius: 4px;
   color: var(--c-white);
-  background-color: var(--c-text);
+  background-color: #404040;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
   cursor: pointer;
+  transition: background-color 200ms ease, transform 150ms ease;
 }
 
+.hero__link:hover {
+  background-color: #111111;
+  transform: translateY(-1px);
+}
+
+/* Swiper Navigation Arrow Buttons */
 .hero__arrow {
   position: absolute;
-  z-index: 2;
+  z-index: 10;
   top: 50%;
-  display: grid;
-  width: 36px;
-  height: 36px;
-  place-items: center;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 32px !important;
+  height: 32px !important;
+  margin-top: 0 !important;
   padding: 0;
-  color: var(--c-text);
-  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  border-radius: 6px !important;
+  color: #404040 !important;
+  background-color: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(4px);
   cursor: pointer;
   transform: translateY(-50%);
+  transition: background-color 200ms ease, transform 150ms ease, box-shadow 200ms ease;
+}
+
+.hero__arrow:hover {
+  background-color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.hero__arrow::after {
+  display: none !important;
 }
 
 .hero__arrow::before {
-  width: 9px;
-  height: 9px;
-  border-top: 1px solid currentColor;
-  border-right: 1px solid currentColor;
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #555555;
+  border-right: 2px solid #555555;
   content: "";
 }
 
 .hero__arrow--previous {
-  left: 16px;
+  left: 16px !important;
+  right: auto !important;
 }
 
 .hero__arrow--previous::before {
   transform: rotate(-135deg);
+  margin-left: 3px;
 }
 
 .hero__arrow--next {
-  right: 16px;
+  right: 16px !important;
+  left: auto !important;
 }
 
 .hero__arrow--next::before {
   transform: rotate(45deg);
+  margin-right: 3px;
 }
 
-.hero-utilities {
-  position: fixed;
+/* Swiper Pagination Bullets (Active Pill + Inactive Dots) */
+.hero-swiper .swiper-pagination.hero__pagination {
+  position: absolute;
   z-index: 10;
-  inset: 0;
-  pointer-events: none;
-}
-
-.hero-utilities__inner,
-.hero-utilities__layout {
-  width: 100%;
-  max-width: none;
-  height: 100%;
-}
-
-.hero-utilities__layout {
-  position: relative;
-  align-items: flex-end;
+  bottom: 20px !important;
+  left: 50% !important;
+  right: auto !important;
+  top: auto !important;
+  transform: translateX(-50%) !important;
+  display: flex !important;
+  align-items: center;
   justify-content: center;
+  gap: 6px;
+  width: auto !important;
+  margin: 0 !important;
+  pointer-events: auto;
 }
 
-.hero__pagination {
+.hero-swiper .swiper-pagination-bullet {
+  width: 6px !important;
+  height: 6px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 1px solid #717171 !important;
+  border-radius: 50% !important;
+  background-color: transparent !important;
+  opacity: 1 !important;
+  cursor: pointer;
+  transition: width 250ms ease, background-color 250ms ease, border-radius 250ms ease, border-color 250ms ease !important;
+}
+
+.hero-swiper .swiper-pagination-bullet-active {
+  width: 20px !important;
+  border-color: #404040 !important;
+  border-radius: 3px !important;
+  background-color: #404040 !important;
+}
+
+/* Floating Controls (Bottom Right) */
+.floating-controls {
   position: fixed;
-  z-index: 11;
-  bottom: calc(16px + env(safe-area-inset-bottom));
-  left: 50%;
+  z-index: 90;
+  right: 24px;
+  bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.floating-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
-  transform: translateX(-50%);
-  pointer-events: auto;
-}
-
-.hero__pagination button {
-  width: 7px;
-  height: 7px;
-  flex: 0 0 auto;
-  padding: 0;
-  border: 1px solid var(--c-text-mute);
-  border-radius: 50%;
-  background-color: var(--c-white);
-  cursor: pointer;
-}
-
-.hero__pagination button.is-active {
-  width: 20px;
-  border-color: var(--c-text);
-  border-radius: 10px;
-  background-color: var(--c-text);
-}
-
-.hero__social {
-  position: fixed;
-  z-index: 11;
-  right: calc(20px + env(safe-area-inset-right));
-  bottom: calc(48px + env(safe-area-inset-bottom));
-  display: block;
-  width: 44px;
-  height: 44px;
   padding: 0;
   border: 0;
-  border-radius: 50%;
-  background: transparent;
   cursor: pointer;
-  pointer-events: auto;
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
-.hero__social img {
-  display: block;
-  width: 100%;
-  height: 100%;
+.floating-btn:hover {
+  transform: scale(1.08);
+}
+
+.floating-btn--chat {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+.floating-btn--kakao {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #fae100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.floating-btn--kakao img {
+  width: 22px;
+  height: 22px;
   object-fit: contain;
 }
 
+.floating-btn--top,
+.floating-btn--down {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #666666;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.floating-btn--top:hover,
+.floating-btn--down:hover {
+  background-color: #f7f7f7;
+  color: #111111;
+}
+
+/* Mobile Layout (640px 이하) */
 @media (max-width: 640px) {
   .hero {
     height: auto;
+    min-height: 0;
+    overflow: visible;
   }
 
   .hero__inner,
-  .hero__layout {
+  .hero-swiper {
     height: auto;
   }
 
   .hero__slide {
-    position: relative;
-    inset: auto;
+    display: flex;
+    flex-direction: column;
+    height: auto;
   }
 
   .hero__visual {
     position: relative;
     inset: auto;
     width: 100%;
-    aspect-ratio: 1;
+    aspect-ratio: 1 / 1;
   }
 
   .hero__visual img {
-    object-position: center 30%;
+    object-position: center;
   }
 
   .hero__copy {
     position: relative;
     inset: auto;
-    padding: 28px 20px 68px;
+    padding: 24px 20px 16px;
     background-color: var(--c-white);
   }
 
-  .hero__copy h1 {
+  .hero__title {
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+
+  .hero__subtitle {
+    font-size: 16px;
     margin-bottom: 16px;
-    font-size: var(--fs-title-mobile);
+  }
+
+  .hero__link {
+    min-height: 32px;
+    font-size: 12px;
   }
 
   .hero__arrow {
-    top: calc((100vw - 72px) / 2);
+    top: calc(50vw - 16px) !important;
+    width: 28px !important;
+    height: 28px !important;
   }
 
   .hero__arrow--previous {
-    left: 4px;
+    left: 8px !important;
   }
 
   .hero__arrow--next {
-    right: 4px;
+    right: 8px !important;
   }
 
-  .hero__social {
-    right: calc(12px + env(safe-area-inset-right));
-    bottom: calc(44px + env(safe-area-inset-bottom));
+  .hero-swiper .swiper-pagination.hero__pagination {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
+    margin: 8px auto 20px !important;
+  }
+
+  .floating-controls {
+    right: 14px;
+    bottom: 20px;
+    gap: 8px;
+  }
+
+  .floating-btn--chat {
     width: 40px;
     height: 40px;
+  }
+
+  .floating-btn--kakao {
+    width: 32px;
+    height: 32px;
   }
 }

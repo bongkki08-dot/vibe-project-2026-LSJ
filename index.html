@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff">
     <title>Skin Lab | 데일리 스킨케어</title>
+    <link rel="stylesheet" href="./css/vendor/swiper-bundle.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/vendor/swiper-bundle.min.js"></script>
     <script src="./js/main.js" defer></script>
   </head>
   <body>
@@ -13,7 +15,7 @@
       <div class="promotion-bar" data-promotion>
         <div class="inner-box promotion-bar__inner">
           <div class="promotion-bar__message">
-            <p>공식몰 혜택 안내</p>
+            <p>카톡 플친 추가 시 3,000원 지급!</p>
             <button
               class="promotion-bar__close"
               type="button"
@@ -41,19 +43,20 @@
             </button>
           </div>
 
-          <a class="site-header__logo" href="./" aria-label="Skin Lab 홈">
-            SKIN LAB
+          <a class="site-header__logo" href="./" aria-label="더랩 바이 블랑두 홈">
+            <img src="./images/used/dt_f631045ff291ac1837e3489ba8180401.png" alt="더랩 바이 블랑두">
           </a>
 
           <div class="site-header__part site-header__part--right">
             <button class="icon-button" type="button" aria-label="검색">
               <span class="icon icon--search" aria-hidden="true"></span>
             </button>
-            <button class="icon-button" type="button" aria-label="로그인">
+            <button class="icon-button site-header__account" type="button" aria-label="로그인">
               <span class="icon icon--account" aria-hidden="true"></span>
             </button>
-            <button class="icon-button" type="button" aria-label="장바구니">
+            <button class="icon-button icon-button--bag" type="button" aria-label="장바구니">
               <span class="icon icon--bag" aria-hidden="true"></span>
+              <span class="cart-badge">0</span>
             </button>
           </div>
         </nav>
@@ -177,153 +180,394 @@
     </div>
 
     <main>
-      <section class="hero" aria-label="추천 제품">
+            <section class="hero" id="hero-section" aria-label="추천 제품">
         <div class="inner-box hero__inner">
-          <div class="hero__layout partition" data-hero-carousel>
-            <article
-              class="hero__slide is-active"
-              role="group"
-              aria-roledescription="슬라이드"
-              aria-label="1 / 4"
-              data-hero-slide
-            >
-              <div class="hero__visual" role="img" aria-label="블루 클레이 마스크 제품 배너">
-                <picture>
-                  <source
-                    media="(max-width: 640px)"
-                    srcset="./images/used/mob_8f4b1698d6957b294e518cbe62bddd93.webp"
-                  >
-                  <img
-                    src="./images/used/dt_72cf80038201f60d115f6ae10b2d7eea.jpg"
-                    alt=""
-                    fetchpriority="high"
-                  >
-                </picture>
+          <div class="swiper hero-swiper">
+            <div class="swiper-wrapper">
+              <!-- 슬라이드 1: 블루클레이 셔벗 모공 제로팩 -->
+              <div class="swiper-slide hero__slide" role="group" aria-roledescription="슬라이드" aria-label="1 / 5">
+                <div class="hero__visual" role="img" aria-label="블루클레이 셔벗 모공 제로팩 제품 배너">
+                  <picture>
+                    <source
+                      media="(max-width: 640px)"
+                      srcset="./images/used/mob_8f4b1698d6957b294e518cbe62bddd93.webp"
+                    >
+                    <img
+                      src="./images/used/dt_70a8ddc84b8fc7e1ce3d5e4f57afe29b.webp"
+                      alt="블루클레이 셔벗 모공 제로팩"
+                      fetchpriority="high"
+                    >
+                  </picture>
+                </div>
+                <div class="hero__copy">
+                  <h1 class="hero__title">피지는 쏙! 모공은 꽉!</h1>
+                  <p class="hero__subtitle">블루클레이 셔벗 모공 제로팩</p>
+                  <a href="#products-section" class="hero__link">More View</a>
+                </div>
               </div>
-              <div class="hero__copy">
-                <h1>맑고 산뜻한 피부결을 위한<br>클레이 마스크 케어</h1>
-                <button class="hero__link" type="button">More View</button>
-              </div>
-            </article>
 
-            <article
-              class="hero__slide"
-              role="group"
-              aria-roledescription="슬라이드"
-              aria-label="2 / 4"
-              data-hero-slide
-              hidden
-            >
-              <div class="hero__visual" role="img" aria-label="수분 젤리 미스트 제품 배너">
-                <picture>
-                  <source
-                    media="(max-width: 640px)"
-                    srcset="./images/used/mob_eb7aacd5aafc68c8075130e10291654d.webp"
-                  >
-                  <img
-                    src="./images/used/dt_12f453b931b1c26f9b3196afde8ffa0d.webp"
-                    alt=""
-                    loading="lazy"
-                  >
-                </picture>
+              <!-- 슬라이드 2: 젤리 미스트 -->
+              <div class="swiper-slide hero__slide" role="group" aria-roledescription="슬라이드" aria-label="2 / 5">
+                <div class="hero__visual" role="img" aria-label="수분 젤리 미스트 제품 배너">
+                  <picture>
+                    <source
+                      media="(max-width: 640px)"
+                      srcset="./images/used/mob_eb7aacd5aafc68c8075130e10291654d.webp"
+                    >
+                    <img
+                      src="./images/used/dt_12f453b931b1c26f9b3196afde8ffa0d.webp"
+                      alt="수분 젤리 미스트"
+                      loading="lazy"
+                    >
+                  </picture>
+                </div>
+                <div class="hero__copy">
+                  <h1 class="hero__title">수분을 가볍게 채우는</h1>
+                  <p class="hero__subtitle">올리고 히알루론산 캡슐 젤리 미스트</p>
+                  <a href="#products-section" class="hero__link">More View</a>
+                </div>
               </div>
-              <div class="hero__copy">
-                <h1>수분을 가볍게 채우는<br>젤리 미스트</h1>
-                <button class="hero__link" type="button">More View</button>
-              </div>
-            </article>
 
-            <article
-              class="hero__slide"
-              role="group"
-              aria-roledescription="슬라이드"
-              aria-label="3 / 4"
-              data-hero-slide
-              hidden
-            >
-              <div class="hero__visual" role="img" aria-label="그린 플라보노이드 패드 제품 배너">
-                <picture>
-                  <source
-                    media="(max-width: 640px)"
-                    srcset="./images/used/mob_35aec6f082662398a45eb01acd65edc5.png"
-                  >
-                  <img
-                    src="./images/used/dt_1b8cce9556991156d23db92d751db0e7.jpg"
-                    alt=""
-                    loading="lazy"
-                  >
-                </picture>
+              <!-- 슬라이드 3: 진정 패드 -->
+              <div class="swiper-slide hero__slide" role="group" aria-roledescription="슬라이드" aria-label="3 / 5">
+                <div class="hero__visual" role="img" aria-label="그린 플라보노이드 패드 제품 배너">
+                  <picture>
+                    <source
+                      media="(max-width: 640px)"
+                      srcset="./images/used/mob_78b73a934daad216fa11b5eb585c0035.jpg"
+                    >
+                    <img
+                      src="./images/used/dt_1b8cce9556991156d23db92d751db0e7.jpg"
+                      alt="그린 플라보노이드 패드"
+                      loading="lazy"
+                    >
+                  </picture>
+                </div>
+                <div class="hero__copy">
+                  <h1 class="hero__title">매일 간편하게 즐기는</h1>
+                  <p class="hero__subtitle">그린 플라보노이드 3.0 진정 패드</p>
+                  <a href="#products-section" class="hero__link">More View</a>
+                </div>
               </div>
-              <div class="hero__copy">
-                <h1>매일 간편하게 즐기는<br>진정 패드 케어</h1>
-                <button class="hero__link" type="button">More View</button>
-              </div>
-            </article>
 
-            <article
-              class="hero__slide"
-              role="group"
-              aria-roledescription="슬라이드"
-              aria-label="4 / 4"
-              data-hero-slide
-              hidden
-            >
-              <div class="hero__visual" role="img" aria-label="히알루론산 로션 제품 배너">
-                <picture>
-                  <source
-                    media="(max-width: 640px)"
-                    srcset="./images/used/mob_cafe882f945584af91534bb253529e72.jpg"
-                  >
-                  <img
-                    src="./images/used/dt_852f27e81e5b0321db609605a711ed8e.jpg"
-                    alt=""
-                    loading="lazy"
-                  >
-                </picture>
+              <!-- 슬라이드 4: 보습 로션 -->
+              <div class="swiper-slide hero__slide" role="group" aria-roledescription="슬라이드" aria-label="4 / 5">
+                <div class="hero__visual" role="img" aria-label="히알루론산 로션 제품 배너">
+                  <picture>
+                    <source
+                      media="(max-width: 640px)"
+                      srcset="./images/used/mob_cafe882f945584af91534bb253529e72.jpg"
+                    >
+                    <img
+                      src="./images/used/dt_852f27e81e5b0321db609605a711ed8e.jpg"
+                      alt="히알루론산 로션"
+                      loading="lazy"
+                    >
+                  </picture>
+                </div>
+                <div class="hero__copy">
+                  <h1 class="hero__title">피부에 편안함을 더하는</h1>
+                  <p class="hero__subtitle">올리고 히알루론산 카밍 로션</p>
+                  <a href="#products-section" class="hero__link">More View</a>
+                </div>
               </div>
-              <div class="hero__copy">
-                <h1>피부에 편안함을 더하는<br>데일리 보습 케어</h1>
-                <button class="hero__link" type="button">More View</button>
-              </div>
-            </article>
 
+              <!-- 슬라이드 5: 히알루론산 토너 -->
+              <div class="swiper-slide hero__slide" role="group" aria-roledescription="슬라이드" aria-label="5 / 5">
+                <div class="hero__visual" role="img" aria-label="히알루론산 토너 제품 배너">
+                  <picture>
+                    <source
+                      media="(max-width: 640px)"
+                      srcset="./images/used/mob_cfba4c3293b13a4f4621d5cbe1e407b2.jpg"
+                    >
+                    <img
+                      src="./images/used/dt_72cf80038201f60d115f6ae10b2d7eea.jpg"
+                      alt="히알루론산 토너"
+                      loading="lazy"
+                    >
+                  </picture>
+                </div>
+                <div class="hero__copy">
+                  <h1 class="hero__title">수분을 깊이 채우는</h1>
+                  <p class="hero__subtitle">올리고 히알루론산 5000 토너</p>
+                  <a href="#products-section" class="hero__link">More View</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 이전 / 다음 네비게이션 버튼 -->
             <button
-              class="hero__arrow hero__arrow--previous"
+              class="swiper-button-prev hero__arrow hero__arrow--previous"
               type="button"
               aria-label="이전 슬라이드"
-              data-hero-previous
             ></button>
             <button
-              class="hero__arrow hero__arrow--next"
+              class="swiper-button-next hero__arrow hero__arrow--next"
               type="button"
               aria-label="다음 슬라이드"
-              data-hero-next
             ></button>
+
+            <!-- 5개 슬라이드 닷 네비게이션 -->
+            <div class="swiper-pagination hero__pagination"></div>
           </div>
         </div>
       </section>
 
-      <section class="hero-utilities" aria-label="메인 비주얼 고정 도구">
-        <div class="inner-box hero-utilities__inner">
-          <div class="hero-utilities__layout partition">
-            <nav class="hero__pagination" aria-label="슬라이드 선택">
-              <button
-                class="is-active"
-                type="button"
-                aria-label="슬라이드 1"
-                aria-current="true"
-                data-hero-indicator="0"
-              ></button>
-              <button type="button" aria-label="슬라이드 2" data-hero-indicator="1"></button>
-              <button type="button" aria-label="슬라이드 3" data-hero-indicator="2"></button>
-              <button type="button" aria-label="슬라이드 4" data-hero-indicator="3"></button>
-            </nav>
-            <button class="hero__social" type="button" aria-label="카카오톡 상담">
-              <img src="./images/used/e5aae97aa62ee3721a1fedd69f10662e.png" alt="">
-            </button>
+      <!-- 우측 하단 고정 제어 버튼 (실시간 문의, 카카오톡, 상하 스크롤 이동) -->
+      <aside class="floating-controls" aria-label="빠른 도구">
+        <button class="floating-btn floating-btn--chat" type="button" aria-label="실시간 문의">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z" fill="#555555"/>
+            <circle cx="8" cy="10" r="1.5" fill="#ffffff"/>
+            <circle cx="12" cy="10" r="1.5" fill="#ffffff"/>
+            <circle cx="16" cy="10" r="1.5" fill="#ffffff"/>
+          </svg>
+        </button>
+        <button class="floating-btn floating-btn--kakao" type="button" aria-label="카카오톡 상담">
+          <img src="./images/used/e5aae97aa62ee3721a1fedd69f10662e.png" alt="카카오톡">
+        </button>
+        <button class="floating-btn floating-btn--top" type="button" aria-label="맨 위로 이동" data-scroll-top>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </button>
+        <button class="floating-btn floating-btn--down" type="button" aria-label="다음 영역으로 이동" data-scroll-down>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      </aside>
+      <!-- 2. 카테고리 배너 및 NEW & BEST 상품 섹션 (두번째 페이지) -->
+      <section class="products-section" id="products-section" aria-label="카테고리 및 NEW & BEST 추천 상품">
+        <div class="inner-box products-section__inner">
+          <!-- 카테고리 배너 목록 -->
+          <nav class="category-banners" aria-label="카테고리 퀵 메뉴">
+            <ul class="category-banners__track" data-category-track>
+              <li class="category-banners__item">
+                <a href="#benefit" class="category-item" data-category="benefit">
+                  <div class="category-item__circle">
+                    <img src="./images/used/dt_7943ced49446b4039eefc8f928ec47c8.png" alt="" class="category-item__icon">
+                  </div>
+                  <span class="category-item__label">공식몰 혜택</span>
+                </a>
+              </li>
+              <li class="category-banners__item">
+                <a href="#toner-mist" class="category-item" data-category="toner-mist">
+                  <div class="category-item__circle">
+                    <img src="./images/used/dt_35aec6f082662398a45eb01acd65edc5.png" alt="" class="category-item__icon">
+                  </div>
+                  <span class="category-item__label">토너/미스트</span>
+                </a>
+              </li>
+              <li class="category-banners__item">
+                <a href="#serum-ampoule" class="category-item" data-category="serum-ampoule">
+                  <div class="category-item__circle">
+                    <img src="./images/used/dt_52fa2ed3e0d9fb0ec9565d02d8a79466.png" alt="" class="category-item__icon">
+                  </div>
+                  <span class="category-item__label">세럼/앰플</span>
+                </a>
+              </li>
+              <li class="category-banners__item">
+                <a href="#lotion-cream" class="category-item" data-category="lotion-cream">
+                  <div class="category-item__circle">
+                    <img src="./images/used/dt_958f90fa9df34cbb139efc7b85a372d5.png" alt="" class="category-item__icon">
+                  </div>
+                  <span class="category-item__label">로션/크림</span>
+                </a>
+              </li>
+              <li class="category-banners__item">
+                <a href="#pad-mask" class="category-item" data-category="pad-mask">
+                  <div class="category-item__circle">
+                    <img src="./images/used/dt_619875b776f8a1d47d0ba3b54d0b1fd3.png" alt="" class="category-item__icon">
+                  </div>
+                  <span class="category-item__label">패드/마스크</span>
+                </a>
+              </li>
+              <li class="category-banners__item">
+                <a href="#cleansing" class="category-item" data-category="cleansing">
+                  <div class="category-item__circle">
+                    <img src="./images/used/dt_86258d033ddeb8d564cc8918b3010008.png" alt="" class="category-item__icon">
+                  </div>
+                  <span class="category-item__label">클렌징</span>
+                </a>
+              </li>
+              <li class="category-banners__item">
+                <a href="#makeup-suncare" class="category-item" data-category="makeup-suncare">
+                  <div class="category-item__circle">
+                    <img src="./images/used/dt_10ba1943c45cfde309713de1387e9322.png" alt="" class="category-item__icon">
+                  </div>
+                  <span class="category-item__label">메이크업/선케어</span>
+                </a>
+              </li>
+            </ul>
+
+            <!-- 모바일 점(Dots) 네비게이션 -->
+            <div class="category-dots" data-category-dots aria-label="카테고리 슬라이드 선택">
+              <button type="button" class="category-dot is-active" aria-label="1번 카테고리 보기" data-cat-dot="0"></button>
+              <button type="button" class="category-dot" aria-label="2번 카테고리 보기" data-cat-dot="1"></button>
+              <button type="button" class="category-dot" aria-label="3번 카테고리 보기" data-cat-dot="2"></button>
+              <button type="button" class="category-dot" aria-label="4번 카테고리 보기" data-cat-dot="3"></button>
+            </div>
+          </nav>
+
+          <!-- NEW & BEST 영역 -->
+          <div class="product-showcase">
+            <header class="product-showcase__header">
+              <h2 class="product-showcase__title">NEW & BEST</h2>
+              <nav class="product-showcase__tabs" role="tablist" aria-label="NEW & BEST 상품 분류">
+                <button type="button" class="product-tab is-active" role="tab" aria-selected="true" data-filter-tab="all">전체</button>
+                <button type="button" class="product-tab" role="tab" aria-selected="false" data-filter-tab="recommend">추천</button>
+                <button type="button" class="product-tab" role="tab" aria-selected="false" data-filter-tab="best">베스트</button>
+                <button type="button" class="product-tab" role="tab" aria-selected="false" data-filter-tab="set">세트</button>
+              </nav>
+            </header>
+
+            <!-- 상품 목록 그리드 -->
+            <ul class="product-grid" data-product-grid>
+              <!-- 1번 상품 -->
+              <li class="product-card" data-category="all recommend">
+                <a href="#product-detail-1" class="product-card__thumb-link" aria-label="블루클레이 블랙헤드 멜팅밤 17g 상세정보">
+                  <span class="product-badge product-badge--new">NEW</span>
+                  <img src="./images/used/dt_126638191ce95dd61097c2dab0a7c77a.jpg" alt="블루클레이 블랙헤드 멜팅밤 17g" class="product-card__image" loading="lazy">
+                </a>
+                <div class="product-card__info">
+                  <h3 class="product-card__name">블루클레이 블랙헤드 멜팅밤 17g</h3>
+                  <div class="product-card__pricing">
+                    <span class="product-card__price-original">25,000원</span>
+                    <span class="product-card__price-sale">18,900원</span>
+                    <span class="product-card__price-discount">24%</span>
+                  </div>
+                </div>
+              </li>
+
+              <!-- 2번 상품 -->
+              <li class="product-card" data-category="all recommend">
+                <a href="#product-detail-2" class="product-card__thumb-link" aria-label="블루클레이 셔벗 모공 제로팩 120ml 상세정보">
+                  <span class="product-badge product-badge--new">NEW</span>
+                  <img src="./images/used/dt_96f416e71520e4ce223df205518207f4.jpg" alt="블루클레이 셔벗 모공 제로팩 120ml" class="product-card__image" loading="lazy">
+                </a>
+                <div class="product-card__info">
+                  <h3 class="product-card__name">블루클레이 셔벗 모공 제로팩 120ml</h3>
+                  <div class="product-card__pricing">
+                    <span class="product-card__price-original">25,000원</span>
+                    <span class="product-card__price-sale">18,900원</span>
+                    <span class="product-card__price-discount">24%</span>
+                  </div>
+                </div>
+              </li>
+
+              <!-- 3번 상품 -->
+              <li class="product-card" data-category="all recommend">
+                <a href="#product-detail-3" class="product-card__thumb-link" aria-label="올리고 히알루론산 캡슐 젤리 미스트 120ml 상세정보">
+                  <span class="product-badge product-badge--new">NEW</span>
+                  <img src="./images/used/dt_2acef7046e9f5c3b17f33c671f433929.jpg" alt="올리고 히알루론산 캡슐 젤리 미스트 120ml" class="product-card__image" loading="lazy">
+                </a>
+                <div class="product-card__info">
+                  <h3 class="product-card__name">올리고 히알루론산 캡슐 젤리 미스트 120ml</h3>
+                  <div class="product-card__pricing">
+                    <span class="product-card__price-original">26,000원</span>
+                    <span class="product-card__price-sale">18,900원</span>
+                    <span class="product-card__price-discount">27%</span>
+                  </div>
+                </div>
+              </li>
+
+              <!-- 4번 상품 -->
+              <li class="product-card" data-category="all best set">
+                <a href="#product-detail-4" class="product-card__thumb-link" aria-label="[수분풀충전 SET] 딥토너 200ml + 하이드로 세럼 50ml + 카밍크림 50ml 상세정보">
+                  <span class="product-badge product-badge--best">BEST</span>
+                  <img src="./images/used/dt_6989ebd61973a2771c5486ac9fa93ae4.jpg" alt="[수분풀충전 SET] 딥토너 200ml + 하이드로 세럼 50ml + 카밍크림 50ml" class="product-card__image" loading="lazy">
+                </a>
+                <div class="product-card__info">
+                  <h3 class="product-card__name">[수분풀충전 SET] 딥토너 200ml + 하이드로 세럼 50ml + 카밍크림 50ml</h3>
+                  <div class="product-card__pricing">
+                    <span class="product-card__price-original">74,000원</span>
+                    <span class="product-card__price-sale">47,300원</span>
+                    <span class="product-card__price-discount">36%</span>
+                  </div>
+                </div>
+              </li>
+
+              <!-- 5번 상품 (추가 상품군: More View 클릭 시 표시) -->
+              <li class="product-card is-hidden" data-more-item data-category="all best">
+                <a href="#product-detail-5" class="product-card__thumb-link" aria-label="올리고 히알루론산 5000 토너 500ml 대용량 상세정보">
+                  <span class="product-badge product-badge--best">BEST</span>
+                  <img src="./images/used/dt_0a6906851e510478c9d0a34a119236a7.jpg" alt="올리고 히알루론산 5000 토너 500ml 대용량" class="product-card__image" loading="lazy">
+                </a>
+                <div class="product-card__info">
+                  <h3 class="product-card__name">올리고 히알루론산 5000 토너 500ml 대용량</h3>
+                  <div class="product-card__pricing">
+                    <span class="product-card__price-original">39,000원</span>
+                    <span class="product-card__price-sale">27,300원</span>
+                    <span class="product-card__price-discount">30%</span>
+                  </div>
+                </div>
+              </li>
+
+              <!-- 6번 상품 (추가 상품군) -->
+              <li class="product-card is-hidden" data-more-item data-category="all recommend">
+                <a href="#product-detail-6" class="product-card__thumb-link" aria-label="그린 플라보노이드 3.0 진정 패드 90매 상세정보">
+                  <span class="product-badge product-badge--new">NEW</span>
+                  <img src="./images/used/dt_4e44489c46cbba9a80da1b6c4c1c3b1f.jpg" alt="그린 플라보노이드 3.0 진정 패드 90매" class="product-card__image" loading="lazy">
+                </a>
+                <div class="product-card__info">
+                  <h3 class="product-card__name">그린 플라보노이드 3.0 진정 패드 90매</h3>
+                  <div class="product-card__pricing">
+                    <span class="product-card__price-original">27,000원</span>
+                    <span class="product-card__price-sale">18,900원</span>
+                    <span class="product-card__price-discount">30%</span>
+                  </div>
+                </div>
+              </li>
+
+              <!-- 7번 상품 (추가 상품군) -->
+              <li class="product-card is-hidden" data-more-item data-category="all best">
+                <a href="#product-detail-7" class="product-card__thumb-link" aria-label="올리고 히알루론산 딥 토너 200ml 상세정보">
+                  <span class="product-badge product-badge--best">BEST</span>
+                  <img src="./images/used/dt_49cfc93e5ae6392d0d3b36d82226157c.jpg" alt="올리고 히알루론산 딥 토너 200ml" class="product-card__image" loading="lazy">
+                </a>
+                <div class="product-card__info">
+                  <h3 class="product-card__name">올리고 히알루론산 딥 토너 200ml</h3>
+                  <div class="product-card__pricing">
+                    <span class="product-card__price-original">21,000원</span>
+                    <span class="product-card__price-sale">14,700원</span>
+                    <span class="product-card__price-discount">30%</span>
+                  </div>
+                </div>
+              </li>
+
+              <!-- 8번 상품 (추가 상품군) -->
+              <li class="product-card is-hidden" data-more-item data-category="all best set">
+                <a href="#product-detail-8" class="product-card__thumb-link" aria-label="[장벽강화 SET] 프리바이오틱세라 크림 50ml + 미스트 120ml 상세정보">
+                  <span class="product-badge product-badge--best">BEST</span>
+                  <img src="./images/used/dt_08a022083684a9d570c54581451d500e.jpg" alt="[장벽강화 SET] 프리바이오틱세라 크림 50ml + 미스트 120ml" class="product-card__image" loading="lazy">
+                </a>
+                <div class="product-card__info">
+                  <h3 class="product-card__name">[장벽강화 SET] 프리바이오틱세라 크림 50ml + 미스트 120ml</h3>
+                  <div class="product-card__pricing">
+                    <span class="product-card__price-original">58,000원</span>
+                    <span class="product-card__price-sale">37,700원</span>
+                    <span class="product-card__price-discount">35%</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            <!-- More View 버튼 -->
+            <div class="product-showcase__actions">
+              <button type="button" class="more-view-button" data-product-more>
+                More View
+              </button>
+            </div>
           </div>
         </div>
       </section>
+
+      <!-- 오른쪽 페이지 인디케이터 (흰색으로 현재 위치 표시) -->
+      <nav class="page-indicator" aria-label="페이지 위치 인디케이터">
+        <button type="button" class="page-indicator__dot is-active" aria-label="1페이지 (메인 비주얼)" data-page-target="0"></button>
+        <button type="button" class="page-indicator__dot" aria-label="2페이지 (카테고리 및 추천 상품)" data-page-target="1"></button>
+      </nav>
     </main>
 
     <footer class="site-footer"></footer>

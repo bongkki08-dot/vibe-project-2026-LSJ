@@ -65,10 +65,13 @@
 .site-header__logo {
   position: absolute;
   left: 50%;
-  color: var(--c-black);
-  font-weight: 700;
-  white-space: nowrap;
   transform: translateX(-50%);
+}
+
+.site-header__logo img {
+  display: block;
+  width: 180px;
+  height: auto;
 }
 
 .icon-button {
@@ -174,4 +177,36 @@
   border-radius: 0.35em 0.35em 0 0;
   content: "";
   transform: translateX(-50%);
+}
+
+.icon-button--bag {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: 1px;
+  right: -6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 14px;
+  height: 14px;
+  padding: 0 3px;
+  border-radius: 50%;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+@media (max-width: 640px) {
+  .site-header__logo img {
+    width: 130px;
+  }
+
+  .site-header__account {
+    display: none;
+  }
 }

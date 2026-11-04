@@ -10,8 +10,13 @@
 }
 
 .site-header {
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  right: 0;
+  left: 0;
   width: 100%;
-  background-color: var(--c-white);
+  background-color: transparent;
 }
 
 .site-header__inner {

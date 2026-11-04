@@ -157,51 +157,206 @@ if (
   });
 }
 
-const heroCarousel = document.querySelector("[data-hero-carousel]");
+/* ==========================================================================
+   Hero Banner Swiper Integration (5 Slides, Swipeable, Autoplay, Navigation)
+   ========================================================================== */
+if (typeof Swiper !== "undefined" && document.querySelector(".hero-swiper")) {
+  const heroSwiper = new Swiper(".hero-swiper", {
+    loop: true,
+    speed: 600,
+    grabCursor: true,
+    autoplay: {
+      delay: 4500,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".hero__pagination",
+      clickable: true,
+    },
+  });
+}
 
-if (heroCarousel) {
-  const slides = Array.from(heroCarousel.querySelectorAll("[data-hero-slide]"));
-  const indicators = Array.from(
-    document.querySelectorAll("[data-hero-indicator]")
-  );
-  const previousButton = heroCarousel.querySelector("[data-hero-previous]");
-  const nextButton = heroCarousel.querySelector("[data-hero-next]");
-  let activeIndex = slides.findIndex((slide) => !slide.hidden);
+/* ==========================================================================
+   Floating Controls (Scroll to Top / Next Section)
+   ========================================================================== */
+const scrollTopBtn = document.querySelector("[data-scroll-top]");
+const scrollDownBtn = document.querySelector("[data-scroll-down]");
 
-  const showSlide = (nextIndex) => {
-    activeIndex = (nextIndex + slides.length) % slides.length;
+scrollTopBtn?.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 
-    slides.forEach((slide, index) => {
-      const isActive = index === activeIndex;
-      slide.hidden = !isActive;
-      slide.classList.toggle("is-active", isActive);
-    });
+scrollDownBtn?.addEventListener("click", () => {
+  const productsSection = document.getElementById("products-section");
+  if (productsSection) {
+    productsSection.scrollIntoView({ behavior: "smooth" });
+  } else {
+    window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+  }
+});
 
-    indicators.forEach((indicator, index) => {
-      const isActive = index === activeIndex;
-      indicator.classList.toggle("is-active", isActive);
 
-      if (isActive) {
-        indicator.setAttribute("aria-current", "true");
-      } else {
-        indicator.removeAttribute("aria-current");
+/* ==========================================================================
+   Category Banners Interaction (Hover & Mobile Touch & Dots Slider)
+   ========================================================================== */
+const categoryTrack = document.querySelector("[data-category-track]");
+const categoryItems = document.querySelectorAll(".category-item");
+const categoryDots = document.querySelectorAll("[data-cat-dot]");
+
+if (categoryTrack) {
+  // Mobile touch: toggle / activate active class
+  categoryItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      const wasActive = item.classList.contains("is-active");
+      categoryItems.forEach((other) => other.classList.remove("is-active"));
+      if (!wasActive) {
+        item.classList.add("is-active");
       }
     });
-  };
+  });
 
-  if (slides.length > 0) {
-    previousButton?.addEventListener("click", () => {
-      showSlide(activeIndex - 1);
-    });
-
-    nextButton?.addEventListener("click", () => {
-      showSlide(activeIndex + 1);
-    });
-
-    indicators.forEach((indicator) => {
-      indicator.addEventListener("click", () => {
-        showSlide(Number(indicator.dataset.heroIndicator));
+  // Mobile Dots Navigation
+  if (categoryDots.length > 0) {
+    categoryDots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        const maxScroll = categoryTrack.scrollWidth - categoryTrack.clientWidth;
+        if (maxScroll <= 0) return;
+        const targetScroll = (index / (categoryDots.length - 1)) * maxScroll;
+        categoryTrack.scrollTo({ left: targetScroll, behavior: "smooth" });
       });
     });
+
+    categoryTrack.addEventListener(
+      "scroll",
+      () => {
+        const maxScroll = categoryTrack.scrollWidth - categoryTrack.clientWidth;
+        if (maxScroll <= 0) return;
+        const progress = categoryTrack.scrollLeft / maxScroll;
+        const activeDotIndex = Math.min(
+          categoryDots.length - 1,
+          Math.max(0, Math.round(progress * (categoryDots.length - 1)))
+        );
+        categoryDots.forEach((dot, i) => {
+          dot.classList.toggle("is-active", i === activeDotIndex);
+        });
+      },
+      { passive: true }
+    );
   }
 }
+
+/* ==========================================================================
+   NEW & BEST Tabs Filtering
+   ========================================================================== */
+const productTabs = document.querySelectorAll("[data-filter-tab]");
+const productCards = document.querySelectorAll(".product-card");
+let currentFilter = "all";
+let moreViewRevealed = false;
+
+function applyProductFilter() {
+  productCards.forEach((card) => {
+    const isMoreItem = card.hasAttribute("data-more-item");
+    const categories = (card.getAttribute("data-category") || "").split(" ");
+    const matchesFilter =
+      currentFilter === "all" || categories.includes(currentFilter);
+
+    if (isMoreItem && !moreViewRevealed) {
+      card.classList.add("is-hidden");
+    } else if (matchesFilter) {
+      card.classList.remove("is-hidden");
+    } else {
+      card.classList.add("is-hidden");
+    }
+  });
+}
+
+productTabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    productTabs.forEach((t) => {
+      t.classList.remove("is-active");
+      t.setAttribute("aria-selected", "false");
+    });
+    tab.classList.add("is-active");
+    tab.setAttribute("aria-selected", "true");
+    currentFilter = tab.getAttribute("data-filter-tab");
+    applyProductFilter();
+  });
+});
+
+/* ==========================================================================
+   More View Button Click Handling
+   ========================================================================== */
+const moreViewButton = document.querySelector("[data-product-more]");
+
+if (moreViewButton) {
+  moreViewButton.addEventListener("click", () => {
+    // 1. Immediately update button state to indicate click / hover color feedback
+    moreViewButton.classList.add("is-active");
+
+    // 2. On mobile / desktop, reveal additional 4 products with smooth transition
+    window.setTimeout(() => {
+      moreViewRevealed = true;
+      applyProductFilter();
+
+      // Smoothly hide the button once all additional products are displayed
+      window.setTimeout(() => {
+        moreViewButton.style.display = "none";
+      }, 250);
+    }, 150);
+  });
+}
+
+/* ==========================================================================
+   Right-side Page Indicator & Full-page Scroll Sync
+   ========================================================================== */
+const pageDots = document.querySelectorAll("[data-page-target]");
+const sections = [
+  document.getElementById("hero-section"),
+  document.getElementById("products-section"),
+].filter(Boolean);
+const heroPagination = document.querySelector(".hero__pagination");
+
+function updatePageIndicator() {
+  const vh = window.innerHeight;
+  let activePageIndex = 0;
+
+  sections.forEach((sec, idx) => {
+    const rect = sec.getBoundingClientRect();
+    if (rect.top <= vh * 0.4) {
+      activePageIndex = idx;
+    }
+  });
+
+  pageDots.forEach((dot, idx) => {
+    dot.classList.toggle("is-active", idx === activePageIndex);
+  });
+
+  // When on Page 2 (products section), hide the hero bottom pagination
+  if (heroPagination) {
+    if (activePageIndex >= 1) {
+      heroPagination.style.opacity = "0";
+      heroPagination.style.pointerEvents = "none";
+      heroPagination.style.transition = "opacity 0.3s ease";
+    } else {
+      heroPagination.style.opacity = "1";
+      heroPagination.style.pointerEvents = "auto";
+    }
+  }
+}
+
+window.addEventListener("scroll", updatePageIndicator, { passive: true });
+updatePageIndicator();
+
+pageDots.forEach((dot) => {
+  dot.addEventListener("click", () => {
+    const targetIdx = Number(dot.getAttribute("data-page-target"));
+    const targetSection = sections[targetIdx];
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+});
