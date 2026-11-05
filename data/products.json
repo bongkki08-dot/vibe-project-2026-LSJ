@@ -1,0 +1,74 @@
+[
+  {
+    "id": "blue-clay-balm",
+    "name": "블루클레이 블랙헤드 멜팅밤 17g",
+    "image": "images/used/dt_126638191ce95dd61097c2dab0a7c77a.jpg",
+    "price": 18900,
+    "originalPrice": 25000,
+    "discount": 24,
+    "badge": "NEW"
+  },
+  {
+    "id": "blue-clay-zero-pack",
+    "name": "블루클레이 셔벗 모공 제로팩 120ml",
+    "image": "images/used/dt_96f416e71520e4ce223df205518207f4.jpg",
+    "price": 18900,
+    "originalPrice": 25000,
+    "discount": 24,
+    "badge": "NEW"
+  },
+  {
+    "id": "oligo-jelly-mist",
+    "name": "올리고 히알루론산 캡슐 젤리 미스트 120ml",
+    "image": "images/used/dt_2acef7046e9f5c3b17f33c671f433929.jpg",
+    "price": 18900,
+    "originalPrice": 26000,
+    "discount": 27,
+    "badge": "NEW"
+  },
+  {
+    "id": "hydration-set",
+    "name": "[수분풀충전 SET] 딥토너 200ml + 하이드로 세럼 50ml + 카밍크림 50ml",
+    "image": "images/used/dt_6989ebd61973a2771c5486ac9fa93ae4.jpg",
+    "price": 47300,
+    "originalPrice": 74000,
+    "discount": 36,
+    "badge": "BEST"
+  },
+  {
+    "id": "oligo-deep-toner-500",
+    "name": "올리고 히알루론산 5000 토너 500ml 대용량",
+    "image": "images/used/dt_0a6906851e510478c9d0a34a119236a7.jpg",
+    "price": 27300,
+    "originalPrice": 39000,
+    "discount": 30,
+    "badge": "BEST"
+  },
+  {
+    "id": "green-calming-pad",
+    "name": "그린 플라보노이드 3.0 진정 패드 90매",
+    "image": "images/used/dt_4e44489c46cbba9a80da1b6c4c1c3b1f.jpg",
+    "price": 18900,
+    "originalPrice": 27000,
+    "discount": 30,
+    "badge": "NEW"
+  },
+  {
+    "id": "oligo-deep-toner-200",
+    "name": "올리고 히알루론산 딥 토너 200ml",
+    "image": "images/used/dt_49cfc93e5ae6392d0d3b36d82226157c.jpg",
+    "price": 14700,
+    "originalPrice": 21000,
+    "discount": 30,
+    "badge": "BEST"
+  },
+  {
+    "id": "barrier-set",
+    "name": "[장벽강화 SET] 프리바이오틱세라 크림 50ml + 미스트 120ml",
+    "image": "images/used/dt_08a022083684a9d570c54581451d500e.jpg",
+    "price": 37700,
+    "originalPrice": 58000,
+    "discount": 35,
+    "badge": "BEST"
+  }
+]

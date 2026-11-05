@@ -276,6 +276,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  cursor: pointer;
   transition: opacity 300ms ease, transform 300ms ease;
 }
 
@@ -285,6 +286,7 @@
 
 .product-card__thumb-link {
   position: relative;
+  isolation: isolate;
   display: block;
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -294,8 +296,25 @@
   text-decoration: none;
 }
 
+.product-card__thumb-link::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background-color: #ffffff;
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+}
+
+.product-card__thumb-link:hover::after,
+.product-card__thumb-link:focus-visible::after {
+  animation: image-camera-flash 180ms ease-out;
+}
+
 .product-card__image {
   display: block;
+  position: relative;
+  z-index: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -304,6 +323,27 @@
 
 .product-card:hover .product-card__image {
   transform: scale(1.03);
+}
+
+@keyframes image-camera-flash {
+  0% {
+    opacity: 0;
+  }
+
+  18% {
+    opacity: 0.72;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card__thumb-link:hover::after,
+  .product-card__thumb-link:focus-visible::after {
+    animation: none;
+  }
 }
 
 /* Badge (NEW: Pink / BEST: Green) */
@@ -349,6 +389,11 @@
   font-weight: 500;
   line-height: 1.4;
   word-break: keep-all;
+}
+
+.product-card__name a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .product-card__pricing {

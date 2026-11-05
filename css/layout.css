@@ -10,13 +10,14 @@
 }
 
 .site-header {
-  position: absolute;
+  position: fixed;
   z-index: 20;
   top: 0;
   right: 0;
   left: 0;
   width: 100%;
   background-color: transparent;
+  transition: background-color 200ms ease;
 }
 
 .site-header__inner {

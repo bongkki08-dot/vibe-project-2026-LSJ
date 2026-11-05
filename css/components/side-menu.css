@@ -238,6 +238,33 @@
   border-top: 1px solid rgb(64 64 64 / 12%);
 }
 
+.side-menu__customer {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgb(64 64 64 / 12%);
+}
+
+.side-menu__customer h2 {
+  margin: 0 0 12px;
+  color: var(--c-text);
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.side-menu__customer ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.side-menu__customer li {
+  color: var(--c-text);
+  font-size: 0.875em;
+}
+
 .side-menu__community h2 {
   margin: 0 0 12px;
   color: var(--c-text);

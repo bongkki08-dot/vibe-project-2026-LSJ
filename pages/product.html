@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>상품 상세 | 더랩 바이 블랑두</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js" defer></script>
+    <script type="module" src="../js/cart.js"></script>
+    <script type="module" src="../js/pages/product-detail.js"></script>
+  </head>
+  <body>
+    <header class="site-header" data-site-header>
+      <div class="promotion-bar" data-promotion>
+        <div class="inner-box promotion-bar__inner">
+          <div class="promotion-bar__message">
+            <p>카톡 플친 추가 시 3,000원 지급!</p>
+            <button class="promotion-bar__close" type="button" aria-label="혜택 안내 닫기" data-promotion-close>
+              <span aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="inner-box site-header__inner">
+        <nav class="site-header__navigation partition" aria-label="주 메뉴">
+          <div class="site-header__part site-header__part--left">
+            <button class="icon-button" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="side-menu-dialog" data-side-menu-open>
+              <span class="icon icon--menu" aria-hidden="true"></span>
+            </button>
+          </div>
+          <a class="site-header__logo" href="../index.html" aria-label="더랩 바이 블랑두 홈">
+            <img src="../images/used/dt_f631045ff291ac1837e3489ba8180401.png" alt="더랩 바이 블랑두">
+          </a>
+          <div class="site-header__part site-header__part--right">
+            <a class="icon-button" href="../index.html#product-section" aria-label="상품 검색">
+              <span class="icon icon--search" aria-hidden="true"></span>
+            </a>
+            <a class="icon-button site-header__account" href="../index.html" aria-label="로그인">
+              <span class="icon icon--account" aria-hidden="true"></span>
+            </a>
+            <button class="icon-button icon-button--bag" type="button" aria-label="장바구니" data-cart-open>
+              <span class="icon icon--bag" aria-hidden="true"></span>
+              <span class="cart-badge" hidden>0</span>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <div class="side-menu-layer" data-side-menu hidden>
+      <button class="side-menu-backdrop" type="button" aria-label="메뉴 닫기" tabindex="-1" data-side-menu-backdrop></button>
+      <aside class="side-menu" id="side-menu-dialog" role="dialog" aria-modal="true" aria-labelledby="side-menu-title" aria-hidden="true" inert data-side-menu-panel>
+        <div class="side-menu__header">
+          <div class="side-menu__account">
+            <p class="side-menu__title" id="side-menu-title">로그인 후 이용하세요</p>
+            <p class="side-menu__description">회원가입 후 다양한 혜택 받아가세요</p>
+            <div class="side-menu__account-actions">
+              <a class="side-menu__login" href="../index.html">로그인</a>
+              <a class="side-menu__signup" href="../index.html">회원가입</a>
+            </div>
+          </div>
+          <button class="side-menu__close" type="button" aria-label="메뉴 닫기" data-side-menu-close><span aria-hidden="true"></span></button>
+        </div>
+        <nav class="side-menu__content" aria-label="사이트 메뉴">
+          <ul class="side-menu__categories">
+            <li class="side-menu__category"><a href="../index.html#product-section">NEW &amp; BEST</a></li>
+            <li class="side-menu__category"><a href="./notice.html">공지사항</a></li>
+            <li class="side-menu__category"><a href="./faq.html">자주 묻는 질문</a></li>
+            <li class="side-menu__category"><a href="./cart.html">장바구니</a></li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+
+    <main>
+      <section class="product-detail-page" aria-label="상품 상세 정보">
+        <div class="inner-box product-detail__inner">
+          <nav class="product-detail__breadcrumb" aria-label="현재 위치">
+            <a href="../index.html">HOME</a><span aria-hidden="true">/</span><span>상품 상세</span>
+          </nav>
+          <div class="product-detail__layout" data-product-detail hidden>
+            <div class="product-detail__gallery">
+              <div class="product-detail__image-frame">
+                <img data-product-image alt="">
+              </div>
+              <div class="product-detail__thumbnail">
+                <img data-product-thumbnail alt="">
+              </div>
+            </div>
+            <section class="product-detail__information" aria-labelledby="product-name">
+              <p class="product-detail__badge" data-product-badge hidden></p>
+              <h1 class="product-detail__name" id="product-name" data-product-name></h1>
+              <p class="product-detail__price-original" data-product-original hidden></p>
+              <p class="product-detail__price"><strong data-product-price></strong><span data-product-discount hidden></span></p>
+              <div class="product-detail__quantity-row">
+                <span>수량</span>
+                <div class="product-detail__quantity-control">
+                  <button type="button" aria-label="수량 줄이기" data-quantity-decrease>−</button>
+                  <output data-product-quantity>1</output>
+                  <button type="button" aria-label="수량 늘리기" data-quantity-increase>+</button>
+                </div>
+                <strong data-product-total></strong>
+              </div>
+              <p class="product-detail__notice" data-product-error role="alert" hidden></p>
+              <div class="product-detail__actions">
+                <button class="product-detail__action product-detail__action--buy" type="button" disabled>BUY IT NOW</button>
+                <button class="product-detail__action product-detail__action--cart" type="button" data-cart-add>ADD TO CART</button>
+                <button class="product-detail__action product-detail__action--wish" type="button" disabled>WISH LIST</button>
+              </div>
+            </section>
+          </div>
+          <p class="product-detail__load-error" data-product-load-error role="alert" hidden></p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

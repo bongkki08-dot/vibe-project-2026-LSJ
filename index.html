@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/vendor/swiper-bundle.min.js"></script>
     <script src="./js/main.js" defer></script>
+    <script type="module" src="./js/cart.js"></script>
   </head>
   <body>
-    <header class="site-header">
+    <header class="site-header" data-site-header>
       <div class="promotion-bar" data-promotion>
         <div class="inner-box promotion-bar__inner">
           <div class="promotion-bar__message">
@@ -54,9 +55,9 @@
             <button class="icon-button site-header__account" type="button" aria-label="로그인">
               <span class="icon icon--account" aria-hidden="true"></span>
             </button>
-            <button class="icon-button icon-button--bag" type="button" aria-label="장바구니">
+            <button class="icon-button icon-button--bag" type="button" aria-label="장바구니" data-cart-open>
               <span class="icon icon--bag" aria-hidden="true"></span>
-              <span class="cart-badge">0</span>
+              <span class="cart-badge" hidden>0</span>
             </button>
           </div>
         </nav>
@@ -171,10 +172,19 @@
           <div class="side-menu__community">
             <h2>COMMUNITY</h2>
             <ul>
-              <li><a href="#notices">공지사항</a></li>
-              <li><a href="#faq">자주 묻는 질문</a></li>
+              <li><a href="./pages/notice.html">공지사항</a></li>
+              <li><a href="./pages/faq.html">자주 묻는 질문</a></li>
             </ul>
           </div>
+
+          <section class="side-menu__customer" aria-labelledby="side-menu-customer-title">
+            <h2 id="side-menu-customer-title">CUSTOMER CENTER</h2>
+            <ul>
+              <li><span>주문조회</span></li>
+              <li><span>최근 본 상품</span></li>
+              <li><span>장바구니</span></li>
+            </ul>
+          </section>
         </nav>
       </aside>
     </div>
@@ -426,12 +436,12 @@
             <ul class="product-grid" data-product-grid>
               <!-- 1번 상품 -->
               <li class="product-card" data-category="all recommend">
-                <a href="#product-detail-1" class="product-card__thumb-link" aria-label="블루클레이 블랙헤드 멜팅밤 17g 상세정보">
+                <a href="./pages/product.html?id=blue-clay-balm" class="product-card__thumb-link" aria-label="블루클레이 블랙헤드 멜팅밤 17g 상세정보">
                   <span class="product-badge product-badge--new">NEW</span>
                   <img src="./images/used/dt_126638191ce95dd61097c2dab0a7c77a.jpg" alt="블루클레이 블랙헤드 멜팅밤 17g" class="product-card__image" loading="lazy">
                 </a>
                 <div class="product-card__info">
-                  <h3 class="product-card__name">블루클레이 블랙헤드 멜팅밤 17g</h3>
+                  <h3 class="product-card__name"><a href="./pages/product.html?id=blue-clay-balm">블루클레이 블랙헤드 멜팅밤 17g</a></h3>
                   <div class="product-card__pricing">
                     <span class="product-card__price-original">25,000원</span>
                     <span class="product-card__price-sale">18,900원</span>
@@ -442,12 +452,12 @@
 
               <!-- 2번 상품 -->
               <li class="product-card" data-category="all recommend">
-                <a href="#product-detail-2" class="product-card__thumb-link" aria-label="블루클레이 셔벗 모공 제로팩 120ml 상세정보">
+                <a href="./pages/product.html?id=blue-clay-zero-pack" class="product-card__thumb-link" aria-label="블루클레이 셔벗 모공 제로팩 120ml 상세정보">
                   <span class="product-badge product-badge--new">NEW</span>
                   <img src="./images/used/dt_96f416e71520e4ce223df205518207f4.jpg" alt="블루클레이 셔벗 모공 제로팩 120ml" class="product-card__image" loading="lazy">
                 </a>
                 <div class="product-card__info">
-                  <h3 class="product-card__name">블루클레이 셔벗 모공 제로팩 120ml</h3>
+                  <h3 class="product-card__name"><a href="./pages/product.html?id=blue-clay-zero-pack">블루클레이 셔벗 모공 제로팩 120ml</a></h3>
                   <div class="product-card__pricing">
                     <span class="product-card__price-original">25,000원</span>
                     <span class="product-card__price-sale">18,900원</span>
@@ -458,12 +468,12 @@
 
               <!-- 3번 상품 -->
               <li class="product-card" data-category="all recommend">
-                <a href="#product-detail-3" class="product-card__thumb-link" aria-label="올리고 히알루론산 캡슐 젤리 미스트 120ml 상세정보">
+                <a href="./pages/product.html?id=oligo-jelly-mist" class="product-card__thumb-link" aria-label="올리고 히알루론산 캡슐 젤리 미스트 120ml 상세정보">
                   <span class="product-badge product-badge--new">NEW</span>
                   <img src="./images/used/dt_2acef7046e9f5c3b17f33c671f433929.jpg" alt="올리고 히알루론산 캡슐 젤리 미스트 120ml" class="product-card__image" loading="lazy">
                 </a>
                 <div class="product-card__info">
-                  <h3 class="product-card__name">올리고 히알루론산 캡슐 젤리 미스트 120ml</h3>
+                  <h3 class="product-card__name"><a href="./pages/product.html?id=oligo-jelly-mist">올리고 히알루론산 캡슐 젤리 미스트 120ml</a></h3>
                   <div class="product-card__pricing">
                     <span class="product-card__price-original">26,000원</span>
                     <span class="product-card__price-sale">18,900원</span>
@@ -474,12 +484,12 @@
 
               <!-- 4번 상품 -->
               <li class="product-card" data-category="all best set">
-                <a href="#product-detail-4" class="product-card__thumb-link" aria-label="[수분풀충전 SET] 딥토너 200ml + 하이드로 세럼 50ml + 카밍크림 50ml 상세정보">
+                <a href="./pages/product.html?id=hydration-set" class="product-card__thumb-link" aria-label="[수분풀충전 SET] 딥토너 200ml + 하이드로 세럼 50ml + 카밍크림 50ml 상세정보">
                   <span class="product-badge product-badge--best">BEST</span>
                   <img src="./images/used/dt_6989ebd61973a2771c5486ac9fa93ae4.jpg" alt="[수분풀충전 SET] 딥토너 200ml + 하이드로 세럼 50ml + 카밍크림 50ml" class="product-card__image" loading="lazy">
                 </a>
                 <div class="product-card__info">
-                  <h3 class="product-card__name">[수분풀충전 SET] 딥토너 200ml + 하이드로 세럼 50ml + 카밍크림 50ml</h3>
+                  <h3 class="product-card__name"><a href="./pages/product.html?id=hydration-set">[수분풀충전 SET] 딥토너 200ml + 하이드로 세럼 50ml + 카밍크림 50ml</a></h3>
                   <div class="product-card__pricing">
                     <span class="product-card__price-original">74,000원</span>
                     <span class="product-card__price-sale">47,300원</span>
@@ -490,12 +500,12 @@
 
               <!-- 5번 상품 (추가 상품군: More View 클릭 시 표시) -->
               <li class="product-card is-hidden" data-more-item data-category="all best">
-                <a href="#product-detail-5" class="product-card__thumb-link" aria-label="올리고 히알루론산 5000 토너 500ml 대용량 상세정보">
+                <a href="./pages/product.html?id=oligo-deep-toner-500" class="product-card__thumb-link" aria-label="올리고 히알루론산 5000 토너 500ml 대용량 상세정보">
                   <span class="product-badge product-badge--best">BEST</span>
                   <img src="./images/used/dt_0a6906851e510478c9d0a34a119236a7.jpg" alt="올리고 히알루론산 5000 토너 500ml 대용량" class="product-card__image" loading="lazy">
                 </a>
                 <div class="product-card__info">
-                  <h3 class="product-card__name">올리고 히알루론산 5000 토너 500ml 대용량</h3>
+                  <h3 class="product-card__name"><a href="./pages/product.html?id=oligo-deep-toner-500">올리고 히알루론산 5000 토너 500ml 대용량</a></h3>
                   <div class="product-card__pricing">
                     <span class="product-card__price-original">39,000원</span>
                     <span class="product-card__price-sale">27,300원</span>
@@ -506,12 +516,12 @@
 
               <!-- 6번 상품 (추가 상품군) -->
               <li class="product-card is-hidden" data-more-item data-category="all recommend">
-                <a href="#product-detail-6" class="product-card__thumb-link" aria-label="그린 플라보노이드 3.0 진정 패드 90매 상세정보">
+                <a href="./pages/product.html?id=green-calming-pad" class="product-card__thumb-link" aria-label="그린 플라보노이드 3.0 진정 패드 90매 상세정보">
                   <span class="product-badge product-badge--new">NEW</span>
                   <img src="./images/used/dt_4e44489c46cbba9a80da1b6c4c1c3b1f.jpg" alt="그린 플라보노이드 3.0 진정 패드 90매" class="product-card__image" loading="lazy">
                 </a>
                 <div class="product-card__info">
-                  <h3 class="product-card__name">그린 플라보노이드 3.0 진정 패드 90매</h3>
+                  <h3 class="product-card__name"><a href="./pages/product.html?id=green-calming-pad">그린 플라보노이드 3.0 진정 패드 90매</a></h3>
                   <div class="product-card__pricing">
                     <span class="product-card__price-original">27,000원</span>
                     <span class="product-card__price-sale">18,900원</span>
@@ -522,12 +532,12 @@
 
               <!-- 7번 상품 (추가 상품군) -->
               <li class="product-card is-hidden" data-more-item data-category="all best">
-                <a href="#product-detail-7" class="product-card__thumb-link" aria-label="올리고 히알루론산 딥 토너 200ml 상세정보">
+                <a href="./pages/product.html?id=oligo-deep-toner-200" class="product-card__thumb-link" aria-label="올리고 히알루론산 딥 토너 200ml 상세정보">
                   <span class="product-badge product-badge--best">BEST</span>
                   <img src="./images/used/dt_49cfc93e5ae6392d0d3b36d82226157c.jpg" alt="올리고 히알루론산 딥 토너 200ml" class="product-card__image" loading="lazy">
                 </a>
                 <div class="product-card__info">
-                  <h3 class="product-card__name">올리고 히알루론산 딥 토너 200ml</h3>
+                  <h3 class="product-card__name"><a href="./pages/product.html?id=oligo-deep-toner-200">올리고 히알루론산 딥 토너 200ml</a></h3>
                   <div class="product-card__pricing">
                     <span class="product-card__price-original">21,000원</span>
                     <span class="product-card__price-sale">14,700원</span>
@@ -538,12 +548,12 @@
 
               <!-- 8번 상품 (추가 상품군) -->
               <li class="product-card is-hidden" data-more-item data-category="all best set">
-                <a href="#product-detail-8" class="product-card__thumb-link" aria-label="[장벽강화 SET] 프리바이오틱세라 크림 50ml + 미스트 120ml 상세정보">
+                <a href="./pages/product.html?id=barrier-set" class="product-card__thumb-link" aria-label="[장벽강화 SET] 프리바이오틱세라 크림 50ml + 미스트 120ml 상세정보">
                   <span class="product-badge product-badge--best">BEST</span>
                   <img src="./images/used/dt_08a022083684a9d570c54581451d500e.jpg" alt="[장벽강화 SET] 프리바이오틱세라 크림 50ml + 미스트 120ml" class="product-card__image" loading="lazy">
                 </a>
                 <div class="product-card__info">
-                  <h3 class="product-card__name">[장벽강화 SET] 프리바이오틱세라 크림 50ml + 미스트 120ml</h3>
+                  <h3 class="product-card__name"><a href="./pages/product.html?id=barrier-set">[장벽강화 SET] 프리바이오틱세라 크림 50ml + 미스트 120ml</a></h3>
                   <div class="product-card__pricing">
                     <span class="product-card__price-original">58,000원</span>
                     <span class="product-card__price-sale">37,700원</span>
@@ -714,18 +724,136 @@
               ></iframe>
             </div>
             <div class="brand-film__copy">
-              <p class="brand-film__eyebrow">THE LAB by BLANC DOUX</p>
-              <h2 class="brand-film__title" id="brand-film-title">각질 20층을 넘어 더 딥하게 채우는 #속보습토너</h2>
-              <p class="brand-film__description">
-                속보습 토너 소개 영상 · 30초
-              </p>
+              <h2 class="brand-film__title" id="brand-film-title">수분은 역시 더랩바이블랑두!</h2>
+              <p class="brand-film__tagline">Made for sensitive skin, loved by all</p>
+              <div class="brand-film__description">
+                <p>
+                  더랩은 민감성 피부 고민을 해결해<br>
+                  일상이 더 편안하고 자신감 있어지도록<br>
+                  제품을 연구합니다.
+                </p>
+                <p>
+                  건강한 피부의 기본은 수분!<br>
+                  피부 속부터 촉촉하게 채우는<br>
+                  더랩의 수분 케어로<br>
+                  자신감 있는 하루를 시작하세요💙
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
+      <section class="brand-about-section" aria-labelledby="brand-about-title">
+        <div class="inner-box brand-about-section__inner">
+          <div class="brand-about-section__content">
+            <h2 class="brand-about-section__title" id="brand-about-title">
+              성분에 과몰입, 효능에 초집착<br>
+              더랩바이블랑두
+            </h2>
+            <button class="brand-about-section__button" type="button">About us</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="instagram-section" aria-labelledby="instagram-title">
+        <div class="inner-box instagram-section__inner">
+          <div class="instagram-section__heading">
+            <p class="instagram-section__handle">@thelabbyblancdoux</p>
+            <h2 class="instagram-section__title" id="instagram-title">Instagram</h2>
+          </div>
+          <ul class="instagram-gallery">
+            <li class="instagram-gallery__item">
+              <a href="https://www.instagram.com/p/DfRkFxDGqEA/" aria-label="2026년 11월 3일 Instagram 게시물 보기">
+                <img src="images/instagram/DfRkFxDGqEA.jpg" alt="2026년 11월 3일 Instagram 게시물" loading="lazy" decoding="async">
+              </a>
+            </li>
+            <li class="instagram-gallery__item">
+              <a href="https://www.instagram.com/p/DfHLuV7Rj7U/" aria-label="2026년 10월 30일 Instagram 게시물 보기">
+                <img src="images/instagram/DfHLuV7Rj7U.jpg" alt="2026년 10월 30일 Instagram 게시물" loading="lazy" decoding="async">
+              </a>
+            </li>
+            <li class="instagram-gallery__item">
+              <a href="https://www.instagram.com/p/DfElRKumtNS/" aria-label="2026년 10월 29일 Instagram 게시물 보기">
+                <img src="images/instagram/DfElRKumtNS.jpg" alt="2026년 10월 29일 Instagram 게시물" loading="lazy" decoding="async">
+              </a>
+            </li>
+            <li class="instagram-gallery__item">
+              <a href="https://www.instagram.com/p/De8_kB9mhAZ/" aria-label="2026년 10월 26일 Instagram 게시물 보기">
+                <img src="images/instagram/De8_kB9mhAZ.jpg" alt="2026년 10월 26일 Instagram 게시물" loading="lazy" decoding="async">
+              </a>
+            </li>
+            <li class="instagram-gallery__item">
+              <a href="https://www.instagram.com/p/De8-8e1RUkI/" aria-label="2026년 10월 26일 Instagram 게시물 보기">
+                <img src="images/instagram/De8-8e1RUkI.jpg" alt="2026년 10월 26일 Instagram 게시물" loading="lazy" decoding="async">
+              </a>
+            </li>
+            <li class="instagram-gallery__item">
+              <a href="https://www.instagram.com/reel/De1UnmGRroR/" aria-label="2026년 10월 23일 Instagram 릴스 보기">
+                <img src="images/instagram/De1UnmGRroR.jpg" alt="2026년 10월 23일 Instagram 릴스" loading="lazy" decoding="async">
+              </a>
+            </li>
+            <li class="instagram-gallery__item">
+              <a href="https://www.instagram.com/reel/Deyjr5DhSEU/" aria-label="2026년 10월 22일 Instagram 릴스 보기">
+                <img src="images/instagram/Deyjr5DhSEU.jpg" alt="2026년 10월 22일 Instagram 릴스" loading="lazy" decoding="async">
+              </a>
+            </li>
+            <li class="instagram-gallery__item">
+              <a href="https://www.instagram.com/reel/DejCspyRgho/" aria-label="2026년 10월 16일 Instagram 릴스 보기">
+                <img src="images/instagram/DejCspyRgho.jpg" alt="2026년 10월 16일 Instagram 릴스" loading="lazy" decoding="async">
+              </a>
+            </li>
+            <li class="instagram-gallery__item">
+              <a href="https://www.instagram.com/p/Deb-VaLE0QJ/" aria-label="2026년 10월 13일 Instagram 게시물 보기">
+                <img src="images/instagram/Deb-VaLE0QJ.jpg" alt="2026년 10월 13일 Instagram 게시물" loading="lazy" decoding="async">
+              </a>
+            </li>
+            <li class="instagram-gallery__item">
+              <a href="https://www.instagram.com/p/Dd_ODuyGjj6/" aria-label="2026년 10월 2일 Instagram 게시물 보기">
+                <img src="images/instagram/Dd_ODuyGjj6.jpg" alt="2026년 10월 2일 Instagram 게시물" loading="lazy" decoding="async">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
     </main>
 
-    <footer class="site-footer"></footer>
+    <footer class="site-footer">
+      <div class="inner-box site-footer__inner">
+        <section class="site-footer__customer" aria-labelledby="footer-customer-title">
+          <h2 class="site-footer__section-title" id="footer-customer-title">CUSTOMER CENTER</h2>
+          <a class="site-footer__phone" href="tel:02-544-5996">02-544-5996</a>
+          <p class="site-footer__hours">
+            <span>MON-FRI 10:00-18:00</span>
+            <span>LUNCH 12:00-13:00</span>
+            <span>SAT,SUN,HOLIDAY OFF</span>
+          </p>
+          <p class="site-footer__bank">BANK ACCOUNT</p>
+        </section>
+
+        <div class="site-footer__business">
+          <nav class="site-footer__social" aria-label="SNS">
+            <a href="https://pf.kakao.com/" target="_blank" rel="noreferrer">Kakao</a>
+            <a href="https://www.instagram.com/thelabbyblancdoux/" target="_blank" rel="noreferrer">Instagram</a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">Facebook</a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">Youtube</a>
+          </nav>
+          <div class="site-footer__company">
+            <p>상호명 : 주식회사 에런케이 대표 : 경호빈 전화 : 02-544-5996</p>
+            <p>주소 : 06123 서울 강남구 봉은사로4길 21 사업자 등록번호 : 790-81-01251</p>
+            <p>통신판매업 신고번호 : 제 2019-서울강남-04901호 [사업자정보확인] 개인정보보호책임자 : 조유진(cs@blancdoux.com)</p>
+          </div>
+          <p class="site-footer__copyright">Copyright © 더랩바이블랑두. All Rights Reserved. Hosting by Cafe24 Corp.</p>
+          <div class="site-footer__links">
+            <span>FAMILY MALL</span>
+            <a href="#brand-about-title">브랜드</a>
+            <span>이용약관</span>
+            <span>개인정보처리방침</span>
+            <span>이용안내</span>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

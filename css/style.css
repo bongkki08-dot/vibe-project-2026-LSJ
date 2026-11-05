@@ -3,8 +3,12 @@
 @import url("./base.css");
 @import url("./layout.css");
 @import url("./components/header.css");
+@import url("./components/footer.css");
+@import url("./components/board.css");
 @import url("./components/hero.css");
 @import url("./components/side-menu.css");
 @import url("./components/product-section.css");
 @import url("./components/lineup-section.css");
 @import url("./components/brand-promo.css");
+@import url("./components/cart.css");
+@import url("./components/product-detail.css");

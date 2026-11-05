@@ -1,5 +1,15 @@
 const promotion = document.querySelector("[data-promotion]");
 const promotionClose = document.querySelector("[data-promotion-close]");
+const siteHeader = document.querySelector("[data-site-header]");
+
+if (siteHeader) {
+  const updateHeaderState = () => {
+    siteHeader.classList.toggle("is-scrolled", window.scrollY > 0);
+  };
+
+  updateHeaderState();
+  window.addEventListener("scroll", updateHeaderState, { passive: true });
+}
 
 if (promotion && promotionClose) {
   promotionClose.addEventListener("click", () => {
@@ -300,6 +310,14 @@ const productCards = document.querySelectorAll(".product-card");
 const moreViewButton = document.querySelector("[data-product-more]");
 let currentFilter = "all";
 let moreViewRevealed = false;
+
+productCards.forEach((card) => {
+  card.addEventListener("click", (event) => {
+    if (event.target.closest("a, button")) return;
+    const productLink = card.querySelector(".product-card__thumb-link");
+    if (productLink) window.location.assign(productLink.href);
+  });
+});
 
 function applyProductFilter() {
   productCards.forEach((card) => {

@@ -3,6 +3,14 @@
   background-color: var(--c-text);
 }
 
+.site-header.is-scrolled {
+  background-color: var(--c-white);
+}
+
+.site-header.is-scrolled .promotion-bar {
+  display: none;
+}
+
 .promotion-bar__inner {
   padding-inline: 48px;
 }
@@ -185,8 +193,8 @@
 
 .cart-badge {
   position: absolute;
-  top: 1px;
-  right: -6px;
+  right: -5px;
+  bottom: 1px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -199,6 +207,10 @@
   font-size: 10px;
   font-weight: 700;
   line-height: 1;
+}
+
+.cart-badge[hidden] {
+  display: none;
 }
 
 @media (max-width: 640px) {
