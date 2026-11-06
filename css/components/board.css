@@ -53,6 +53,7 @@
 }
 
 .board-write-button {
+  display: inline-block;
   min-width: 80px;
   margin-top: 18px;
   padding: 10px 18px;
@@ -62,6 +63,7 @@
   color: var(--c-text);
   font: inherit;
   font-size: 13px;
+  text-decoration: none;
   cursor: pointer;
 }
 

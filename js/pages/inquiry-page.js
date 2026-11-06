@@ -230,8 +230,8 @@ if (inquiryForm && inquiryList) {
   onAuthStateChanged(auth, (user) => {
     state.user = user;
     state.isAdmin = user?.uid === ADMIN_UID;
-    inquiryForm.hidden = !user;
-    loginMessage.hidden = Boolean(user);
+    inquiryForm.hidden = true;
+    loginMessage.hidden = true;
     render();
   });
 

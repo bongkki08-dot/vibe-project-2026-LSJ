@@ -12,15 +12,16 @@
 }
 
 .promotion-bar__inner {
-  padding-inline: 48px;
+  padding-inline: 24px;
 }
 
 .promotion-bar__message {
   position: relative;
   display: flex;
+  height: 30px;
   align-items: center;
   justify-content: center;
-  padding-block: 4px;
+  padding-block: 0;
   font-size: 12px;
   font-weight: 600;
 }
@@ -28,7 +29,7 @@
 .promotion-bar__close {
   position: absolute;
   inset-block: 0;
-  right: 48px;
+  right: 12px;
   display: grid;
   width: 24px;
   place-items: center;
@@ -67,7 +68,7 @@
 
 .site-header__part--right {
   justify-content: flex-end;
-  gap: 16px;
+  gap: 18px;
 }
 
 .site-header__logo {
@@ -78,7 +79,7 @@
 
 .site-header__logo img {
   display: block;
-  width: 220px;
+  width: 260px;
   height: auto;
 }
 

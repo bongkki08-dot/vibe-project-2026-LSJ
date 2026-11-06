@@ -21,12 +21,12 @@
 }
 
 .site-header__inner {
-  padding-inline: 48px;
+  padding-inline: 56px;
 }
 
 .site-header__navigation {
   position: relative;
-  min-height: 40px;
+  min-height: 64px;
   align-items: center;
   justify-content: space-between;
 }
