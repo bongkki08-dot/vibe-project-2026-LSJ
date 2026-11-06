@@ -1,4 +1,6 @@
 import { boardService } from "../data/board-service.js";
+import { ADMIN_UID } from "../data/firebase/admin-constants.js";
+import { auth, onAuthStateChanged } from "../data/firebase/firebase-config.js";
 
 const boardElement = document.querySelector("[data-board-type]");
 const boardList = document.querySelector("[data-board-list]");
@@ -23,6 +25,11 @@ if (boardElement && boardList) {
   const previousButton = document.querySelector("[data-page-previous]");
   const nextButton = document.querySelector("[data-page-next]");
   const stateMessage = document.querySelector("[data-board-state]");
+  const writeButton = document.querySelector("[data-admin-write]");
+  const writeForm = document.querySelector("[data-board-write-form]");
+  const writeCancelButton = document.querySelector("[data-board-write-cancel]");
+  const writeMessage = document.querySelector("[data-board-write-message]");
+  let adminUser = null;
 
   function getFilteredPosts() {
     const query = state.query.trim().toLocaleLowerCase("ko");
@@ -192,6 +199,67 @@ if (boardElement && boardList) {
     if (state.page >= totalPages) return;
     state.page += 1;
     render();
+  });
+
+  writeButton?.addEventListener("click", () => {
+    writeForm.hidden = false;
+    writeMessage.textContent = "";
+    writeForm.elements.title.focus();
+  });
+
+  writeCancelButton?.addEventListener("click", () => {
+    writeForm.reset();
+    writeForm.hidden = true;
+    writeMessage.textContent = "";
+  });
+
+  writeForm?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!adminUser) return;
+
+    const title = writeForm.elements.title.value.trim();
+    const content = writeForm.elements.content.value.trim();
+    if (!title || !content) {
+      writeMessage.textContent = "제목과 내용을 입력해 주세요.";
+      return;
+    }
+
+    const submitButton = writeForm.querySelector("[type=submit]");
+    submitButton.disabled = true;
+    writeMessage.textContent = "등록 중입니다.";
+
+    try {
+      const post = await boardService.create({
+        author: {
+          id: adminUser.uid,
+          name: adminUser.displayName || adminUser.email || "관리자",
+        },
+        boardType,
+        content,
+        title,
+      });
+      state.posts.unshift(post);
+      state.page = 1;
+      state.expandedId = null;
+      render();
+      writeForm.reset();
+      writeForm.hidden = true;
+      writeMessage.textContent = "등록되었습니다.";
+    } catch (error) {
+      console.error("Failed to create board post.", error);
+      writeMessage.textContent = "글 등록에 실패했습니다. 잠시 후 다시 시도해 주세요.";
+    } finally {
+      submitButton.disabled = false;
+    }
+  });
+
+  onAuthStateChanged(auth, (user) => {
+    adminUser = user?.uid === ADMIN_UID ? user : null;
+    if (writeButton) writeButton.hidden = !adminUser;
+    if (!adminUser && writeForm) {
+      writeForm.reset();
+      writeForm.hidden = true;
+    }
   });
 
   async function initializeBoard() {

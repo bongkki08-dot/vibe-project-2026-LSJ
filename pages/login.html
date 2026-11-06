@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>로그인 | Skin Lab</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <script type="module" src="../js/auth-pages.js"></script>
+  </head>
+  <body class="auth-page">
+    <header class="auth-page__header">
+      <a href="../index.html" aria-label="더랩 바이 블랑두 홈">
+        <img src="../images/used/dt_f631045ff291ac1837e3489ba8180401.png" alt="더랩 바이 블랑두">
+      </a>
+    </header>
+
+    <main class="auth-page__main">
+      <section class="auth-card" aria-labelledby="login-title">
+        <h1 class="auth-card__title" id="login-title">로그인</h1>
+
+        <form class="auth-form" data-auth-form="login" novalidate>
+          <div class="auth-field">
+            <label for="login-email">이메일</label>
+            <input id="login-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="auth-field">
+            <label for="login-password">비밀번호</label>
+            <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+          </div>
+          <p class="auth-message" role="alert" data-auth-message></p>
+          <button class="auth-submit" type="submit">로그인</button>
+        </form>
+
+        <p class="auth-switch">
+          <span>아직 회원이 아니신가요?</span>
+          <a href="./signup.html">회원가입</a>
+        </p>
+        <p class="auth-back"><a href="../index.html">홈으로 돌아가기</a></p>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+/* 로그인·회원가입 페이지 전용 스타일 (기존 style.css 뒤에 불러오기) */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  color: #222222;
+}
+.auth-page__header {
+  padding: 28px 16px 8px;
+  text-align: center;
+}
+.auth-page__header img { height: 28px; width: auto; }
+.auth-page__main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 32px 16px 80px;
+}
+.auth-card { width: 100%; max-width: 420px; }
+.auth-card__title {
+  margin: 0 0 28px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+.auth-form { display: grid; gap: 16px; }
+.auth-field { display: grid; gap: 6px; }
+.auth-field label { font-size: 13px; color: #555555; }
+.auth-field input[type="text"],
+.auth-field input[type="email"],
+.auth-field input[type="password"] {
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid #d5d5d5;
+  border-radius: 4px;
+  font: inherit;
+  font-size: 15px;
+  background: #ffffff;
+}
+.auth-field input:focus-visible {
+  outline: 2px solid #2b4ea2;
+  outline-offset: 1px;
+  border-color: #2b4ea2;
+}
+.auth-field__hint { font-size: 12px; color: #888888; }
+.auth-agree { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; color: #555555; }
+.auth-agree input { margin-top: 2px; }
+.auth-message { min-height: 20px; margin: 0; font-size: 13px; color: #c0392b; }
+.auth-message.is-success { color: #1e7a46; }
+.auth-submit {
+  height: 52px;
+  border: 0;
+  border-radius: 4px;
+  background: #222222;
+  color: #ffffff;
+  font: inherit;
+  font-size: 16px;
+  cursor: pointer;
+}
+.auth-submit:disabled { background: #999999; cursor: default; }
+.auth-submit:focus-visible { outline: 2px solid #2b4ea2; outline-offset: 2px; }
+.auth-switch {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #666666;
+}
+.auth-switch a { color: #222222; font-weight: 600; text-decoration: underline; }
+.auth-back { margin-top: 14px; text-align: center; font-size: 13px; }
+.auth-back a { color: #888888; }

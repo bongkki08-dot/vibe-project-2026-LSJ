@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>회원가입 | Skin Lab</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <script type="module" src="../js/auth-pages.js"></script>
+  </head>
+  <body class="auth-page">
+    <header class="auth-page__header">
+      <a href="../index.html" aria-label="더랩 바이 블랑두 홈">
+        <img src="../images/used/dt_f631045ff291ac1837e3489ba8180401.png" alt="더랩 바이 블랑두">
+      </a>
+    </header>
+
+    <main class="auth-page__main">
+      <section class="auth-card" aria-labelledby="signup-title">
+        <h1 class="auth-card__title" id="signup-title">회원가입</h1>
+
+        <form class="auth-form" data-auth-form="signup" novalidate>
+          <div class="auth-field">
+            <label for="signup-name">이름</label>
+            <input id="signup-name" name="name" type="text" autocomplete="name" maxlength="20" required>
+          </div>
+          <div class="auth-field">
+            <label for="signup-email">이메일</label>
+            <input id="signup-email" name="email" type="email" autocomplete="email" required>
+            <span class="auth-field__hint">테스트 사이트예요. 실제 이메일 대신 test1@test.com 같은 가짜 주소를 써도 돼요.</span>
+          </div>
+          <div class="auth-field">
+            <label for="signup-password">비밀번호</label>
+            <input id="signup-password" name="password" type="password" autocomplete="new-password" minlength="6" required>
+            <span class="auth-field__hint">6자 이상</span>
+          </div>
+          <div class="auth-field">
+            <label for="signup-password-confirm">비밀번호 확인</label>
+            <input id="signup-password-confirm" name="passwordConfirm" type="password" autocomplete="new-password" required>
+          </div>
+          <label class="auth-agree">
+            <input type="checkbox" name="agree" required>
+            <span>이용약관 및 개인정보 수집에 동의합니다. (테스트용)</span>
+          </label>
+          <p class="auth-message" role="alert" data-auth-message></p>
+          <button class="auth-submit" type="submit">가입하기</button>
+        </form>
+
+        <p class="auth-switch">
+          <span>이미 회원이신가요?</span>
+          <a href="./login.html">로그인</a>
+        </p>
+        <p class="auth-back"><a href="../index.html">홈으로 돌아가기</a></p>
+      </section>
+    </main>
+  </body>
+</html>

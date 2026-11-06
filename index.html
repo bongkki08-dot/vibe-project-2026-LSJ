@@ -12,182 +12,8 @@
     <script type="module" src="./js/cart.js"></script>
   </head>
   <body>
-    <header class="site-header" data-site-header>
-      <div class="promotion-bar" data-promotion>
-        <div class="inner-box promotion-bar__inner">
-          <div class="promotion-bar__message">
-            <p>카톡 플친 추가 시 3,000원 지급!</p>
-            <button
-              class="promotion-bar__close"
-              type="button"
-              aria-label="혜택 안내 닫기"
-              data-promotion-close
-            >
-              <span aria-hidden="true"></span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="inner-box site-header__inner">
-        <nav class="site-header__navigation partition" aria-label="주 메뉴">
-          <div class="site-header__part site-header__part--left">
-            <button
-              class="icon-button"
-              type="button"
-              aria-label="메뉴 열기"
-              aria-expanded="false"
-              aria-controls="side-menu-dialog"
-              data-side-menu-open
-            >
-              <span class="icon icon--menu" aria-hidden="true"></span>
-            </button>
-          </div>
-
-          <a class="site-header__logo" href="./" aria-label="더랩 바이 블랑두 홈">
-            <img src="./images/used/dt_f631045ff291ac1837e3489ba8180401.png" alt="더랩 바이 블랑두">
-          </a>
-
-          <div class="site-header__part site-header__part--right">
-            <button class="icon-button" type="button" aria-label="검색">
-              <span class="icon icon--search" aria-hidden="true"></span>
-            </button>
-            <button class="icon-button site-header__account" type="button" aria-label="로그인">
-              <span class="icon icon--account" aria-hidden="true"></span>
-            </button>
-            <a class="icon-button icon-button--bag" href="./pages/cart.html" aria-label="장바구니">
-              <span class="icon icon--bag" aria-hidden="true"></span>
-              <span class="cart-badge" hidden>0</span>
-            </a>
-          </div>
-        </nav>
-      </div>
-    </header>
-
-    <div class="side-menu-layer" data-side-menu hidden>
-      <button
-        class="side-menu-backdrop"
-        type="button"
-        aria-label="메뉴 닫기"
-        tabindex="-1"
-        data-side-menu-backdrop
-      ></button>
-      <aside
-        class="side-menu"
-        id="side-menu-dialog"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="side-menu-title"
-        aria-hidden="true"
-        inert
-        data-side-menu-panel
-      >
-        <div class="side-menu__header">
-          <div class="side-menu__account">
-            <p class="side-menu__title" id="side-menu-title">로그인 후 이용하세요</p>
-            <p class="side-menu__description">회원가입 후 다양한 혜택 받아가세요</p>
-            <div class="side-menu__account-actions">
-              <button class="side-menu__login" type="button">로그인</button>
-              <button class="side-menu__signup" type="button">회원가입</button>
-            </div>
-          </div>
-          <button
-            class="side-menu__close"
-            type="button"
-            aria-label="메뉴 닫기"
-            data-side-menu-close
-          >
-            <span aria-hidden="true"></span>
-          </button>
-        </div>
-
-        <nav class="side-menu__content" aria-label="사이트 메뉴">
-          <ul class="side-menu__categories">
-            <li class="side-menu__category">
-              <button
-                class="side-menu__accordion"
-                type="button"
-                aria-expanded="true"
-                aria-controls="side-menu-brand"
-                data-menu-accordion
-              >
-                <span>BRAND</span>
-                <span class="side-menu__chevron" aria-hidden="true"></span>
-              </button>
-              <ul class="side-menu__subcategories" id="side-menu-brand">
-                <li><a href="#story">STORY</a></li>
-                <li><a href="#mission">MISSION</a></li>
-                <li><a href="#product">PRODUCT</a></li>
-                <li><a href="#membership">MEMBERSHIP</a></li>
-              </ul>
-            </li>
-            <li class="side-menu__category">
-              <button
-                class="side-menu__accordion"
-                type="button"
-                aria-expanded="true"
-                aria-controls="side-menu-all"
-                data-menu-accordion
-              >
-                <span>ALL</span>
-                <span class="side-menu__chevron" aria-hidden="true"></span>
-              </button>
-              <ul class="side-menu__subcategories" id="side-menu-all">
-                <li><a href="#toner-mist">토너/미스트</a></li>
-                <li><a href="#serum-ampoule">세럼/앰플</a></li>
-                <li><a href="#lotion-cream">로션/크림</a></li>
-                <li><a href="#pad-mask">패드/마스크</a></li>
-                <li><a href="#cleansing">클렌징</a></li>
-                <li><a href="#makeup-suncare">메이크업/선케어</a></li>
-                <li><a href="#sets">세트상품</a></li>
-              </ul>
-            </li>
-            <li class="side-menu__category">
-              <a class="side-menu__standalone" href="#best">베스트</a>
-            </li>
-            <li class="side-menu__category">
-              <button
-                class="side-menu__accordion"
-                type="button"
-                aria-expanded="true"
-                aria-controls="side-menu-lines"
-                data-menu-accordion
-              >
-                <span>라인별 제품</span>
-                <span class="side-menu__chevron" aria-hidden="true"></span>
-              </button>
-              <ul class="side-menu__subcategories" id="side-menu-lines">
-                <li><a href="#oligo-hyaluronic">올리고 히알루론산 (수분)</a></li>
-                <li><a href="#green-flavonoid">그린 플라보노이드 (진정)</a></li>
-                <li><a href="#prebiotic-cera">프리바이오틱세라 (장벽)</a></li>
-                <li><a href="#expert-rue">엑스퍼트루 (탄력/미백)</a></li>
-                <li><a href="#blue-clay">블루클레이 (모공)</a></li>
-              </ul>
-            </li>
-            <li class="side-menu__category">
-              <a class="side-menu__standalone" href="#events">이벤트</a>
-            </li>
-          </ul>
-
-          <div class="side-menu__community">
-            <h2>COMMUNITY</h2>
-            <ul>
-              <li><a href="./pages/notice.html">공지사항</a></li>
-              <li><a href="./pages/faq.html">자주 묻는 질문</a></li>
-            </ul>
-          </div>
-
-          <section class="side-menu__customer" aria-labelledby="side-menu-customer-title">
-            <h2 id="side-menu-customer-title">CUSTOMER CENTER</h2>
-            <ul>
-              <li><span>주문조회</span></li>
-              <li><span>최근 본 상품</span></li>
-              <li><span>장바구니</span></li>
-            </ul>
-          </section>
-        </nav>
-      </aside>
-    </div>
+    <script src="./js/site-layout.js"></script>
+    <script src="./js/site-layout.js"></script>
 
     <main>
             <section class="hero" id="hero-section" aria-label="추천 제품">
@@ -764,53 +590,53 @@
           </div>
           <ul class="instagram-gallery">
             <li class="instagram-gallery__item">
-              <a href="https://www.instagram.com/p/DfRkFxDGqEA/" aria-label="2026년 11월 3일 Instagram 게시물 보기">
-                <img src="images/instagram/DfRkFxDGqEA.jpg" alt="2026년 11월 3일 Instagram 게시물" loading="lazy" decoding="async">
+              <a href="https://www.instagram.com/p/DfW7kk8Gq2l/" aria-label="2026년 11월 6일 Instagram 게시물 보기">
+                <img src="images\instagram\884715436_18641655988002869_883563158891614645_n.jpg" alt="2026년 11월 6일 Instagram 게시물" loading="lazy" decoding="async">
               </a>
             </li>
             <li class="instagram-gallery__item">
-              <a href="https://www.instagram.com/p/DfHLuV7Rj7U/" aria-label="2026년 10월 30일 Instagram 게시물 보기">
-                <img src="images/instagram/DfHLuV7Rj7U.jpg" alt="2026년 10월 30일 Instagram 게시물" loading="lazy" decoding="async">
+              <a href="https://www.instagram.com/p/DfRkFxDGqEA/" aria-label="2026년 11월 4일 Instagram 게시물 보기">
+                <img src="images\instagram\876139198_18640917442002869_2455524009330394883_n.jpg" alt="2026년 11월 4일 Instagram 게시물" loading="lazy" decoding="async">
               </a>
             </li>
             <li class="instagram-gallery__item">
-              <a href="https://www.instagram.com/p/DfElRKumtNS/" aria-label="2026년 10월 29일 Instagram 게시물 보기">
-                <img src="images/instagram/DfElRKumtNS.jpg" alt="2026년 10월 29일 Instagram 게시물" loading="lazy" decoding="async">
+              <a href="https://www.instagram.com/reels/DfPJ2rKxQX-/" aria-label="2026년 11월 3일 Instagram 게시물 보기">
+                <img src="images\instagram\879376658_1109935622025059_6897076349695332004_n.jpg" alt="2026년 11월 3일 Instagram 게시물" loading="lazy" decoding="async">
               </a>
             </li>
             <li class="instagram-gallery__item">
-              <a href="https://www.instagram.com/p/De8_kB9mhAZ/" aria-label="2026년 10월 26일 Instagram 게시물 보기">
-                <img src="images/instagram/De8_kB9mhAZ.jpg" alt="2026년 10월 26일 Instagram 게시물" loading="lazy" decoding="async">
+              <a href="https://www.instagram.com/p/DfHLuV7Rj7U/" aria-label="2026년 10월 31일 Instagram 게시물 보기">
+                <img src="images\instagram\878539946_18639460051002869_5460774894635157762_n.jpg" alt="2026년 10월 31일 Instagram 게시물" loading="lazy" decoding="async">
               </a>
             </li>
             <li class="instagram-gallery__item">
-              <a href="https://www.instagram.com/p/De8-8e1RUkI/" aria-label="2026년 10월 26일 Instagram 게시물 보기">
-                <img src="images/instagram/De8-8e1RUkI.jpg" alt="2026년 10월 26일 Instagram 게시물" loading="lazy" decoding="async">
+              <a href="https://www.instagram.com/reels/DfElP-yBZlq/" aria-label="2026년 10월 30일 Instagram 게시물 보기">
+                <img src="images\instagram\870182339_18639024502002869_4012789757952924278_n.jpg" alt="2026년 10월 30일 Instagram 게시물" loading="lazy" decoding="async">
               </a>
             </li>
             <li class="instagram-gallery__item">
-              <a href="https://www.instagram.com/reel/De1UnmGRroR/" aria-label="2026년 10월 23일 Instagram 릴스 보기">
-                <img src="images/instagram/De1UnmGRroR.jpg" alt="2026년 10월 23일 Instagram 릴스" loading="lazy" decoding="async">
+              <a href="https://www.instagram.com/p/DfElRKumtNS/" aria-label="2026년 10월 30일 Instagram 릴스 보기">
+                <img src="images\instagram\870146661_18639054778002869_8436708870189637987_n.jpg" alt="2026년 10월 30일 Instagram 릴스" loading="lazy" decoding="async">
               </a>
             </li>
             <li class="instagram-gallery__item">
-              <a href="https://www.instagram.com/reel/Deyjr5DhSEU/" aria-label="2026년 10월 22일 Instagram 릴스 보기">
-                <img src="images/instagram/Deyjr5DhSEU.jpg" alt="2026년 10월 22일 Instagram 릴스" loading="lazy" decoding="async">
+              <a href="https://www.instagram.com/p/De8_kB9mhAZ/" aria-label="2026년 10월 26일 Instagram 릴스 보기">
+                <img src="images\instagram\868719779_18637970599002869_669874643019083663_n.jpg" alt="2026년 10월 26일 Instagram 릴스" loading="lazy" decoding="async">
               </a>
             </li>
             <li class="instagram-gallery__item">
-              <a href="https://www.instagram.com/reel/DejCspyRgho/" aria-label="2026년 10월 16일 Instagram 릴스 보기">
-                <img src="images/instagram/DejCspyRgho.jpg" alt="2026년 10월 16일 Instagram 릴스" loading="lazy" decoding="async">
+              <a href="https://www.instagram.com/reels/DejCspyRgho/" aria-label="2026년 10월 16일 Instagram 릴스 보기">
+                <img src="images\instagram\867028584_18637969540002869_4966735534391518869_n.jpg" alt="2026년 10월 16일 Instagram 릴스" loading="lazy" decoding="async">
               </a>
             </li>
             <li class="instagram-gallery__item">
               <a href="https://www.instagram.com/p/Deb-VaLE0QJ/" aria-label="2026년 10월 13일 Instagram 게시물 보기">
-                <img src="images/instagram/Deb-VaLE0QJ.jpg" alt="2026년 10월 13일 Instagram 게시물" loading="lazy" decoding="async">
+                <img src="images\instagram\864452035_2742170569535910_1364723595801140810_n.jpg" alt="2026년 10월 13일 Instagram 게시물" loading="lazy" decoding="async">
               </a>
             </li>
             <li class="instagram-gallery__item">
-              <a href="https://www.instagram.com/p/Dd_ODuyGjj6/" aria-label="2026년 10월 2일 Instagram 게시물 보기">
-                <img src="images/instagram/Dd_ODuyGjj6.jpg" alt="2026년 10월 2일 Instagram 게시물" loading="lazy" decoding="async">
+              <a href="https://www.instagram.com/reels/Deyll-NxWaE/" aria-label="2026년 10월 23일 Instagram 게시물 보기">
+                <img src="images\instagram\863908276_18636543820002869_2207326436568154649_n.jpg" alt="2026년 10월 23일 Instagram 게시물" loading="lazy" decoding="async">
               </a>
             </li>
           </ul>
@@ -819,41 +645,6 @@
 
     </main>
 
-    <footer class="site-footer">
-      <div class="inner-box site-footer__inner">
-        <section class="site-footer__customer" aria-labelledby="footer-customer-title">
-          <h2 class="site-footer__section-title" id="footer-customer-title">CUSTOMER CENTER</h2>
-          <a class="site-footer__phone" href="tel:02-544-5996">02-544-5996</a>
-          <p class="site-footer__hours">
-            <span>MON-FRI 10:00-18:00</span>
-            <span>LUNCH 12:00-13:00</span>
-            <span>SAT,SUN,HOLIDAY OFF</span>
-          </p>
-          <p class="site-footer__bank">BANK ACCOUNT</p>
-        </section>
-
-        <div class="site-footer__business">
-          <nav class="site-footer__social" aria-label="SNS">
-            <a href="https://pf.kakao.com/" target="_blank" rel="noreferrer">Kakao</a>
-            <a href="https://www.instagram.com/thelabbyblancdoux/" target="_blank" rel="noreferrer">Instagram</a>
-            <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">Facebook</a>
-            <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">Youtube</a>
-          </nav>
-          <div class="site-footer__company">
-            <p>상호명 : 주식회사 에런케이 대표 : 경호빈 전화 : 02-544-5996</p>
-            <p>주소 : 06123 서울 강남구 봉은사로4길 21 사업자 등록번호 : 790-81-01251</p>
-            <p>통신판매업 신고번호 : 제 2019-서울강남-04901호 [사업자정보확인] 개인정보보호책임자 : 조유진(cs@blancdoux.com)</p>
-          </div>
-          <p class="site-footer__copyright">Copyright © 더랩바이블랑두. All Rights Reserved. Hosting by Cafe24 Corp.</p>
-          <div class="site-footer__links">
-            <span>FAMILY MALL</span>
-            <a href="#brand-about-title">브랜드</a>
-            <span>이용약관</span>
-            <span>개인정보처리방침</span>
-            <span>이용안내</span>
-          </div>
-        </div>
-      </div>
-    </footer>
   </body>
+  <script type="module" src="./js/auth-ui.js"></script>
 </html>

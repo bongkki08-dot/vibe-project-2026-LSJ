@@ -1,1 +1,1 @@
-export { boardMockService as boardService } from "./board-mock-service.js";
+export { boardFirebaseService as boardService } from "./firebase/board-firebase-service.js";

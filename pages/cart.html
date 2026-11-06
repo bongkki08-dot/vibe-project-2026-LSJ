@@ -9,69 +9,10 @@
     <script src="../js/main.js" defer></script>
     <script type="module" src="../js/cart.js"></script>
     <script type="module" src="../js/pages/cart-page.js"></script>
+    <script type="module" src="../js/auth-ui.js"></script>
   </head>
   <body>
-    <header class="site-header" data-site-header>
-      <div class="promotion-bar" data-promotion>
-        <div class="inner-box promotion-bar__inner">
-          <div class="promotion-bar__message">
-            <p>카톡 플친 추가 시 3,000원 지급!</p>
-            <button class="promotion-bar__close" type="button" aria-label="혜택 안내 닫기" data-promotion-close>
-              <span aria-hidden="true"></span>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="inner-box site-header__inner">
-        <nav class="site-header__navigation partition" aria-label="주 메뉴">
-          <div class="site-header__part site-header__part--left">
-            <button class="icon-button" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="side-menu-dialog" data-side-menu-open>
-              <span class="icon icon--menu" aria-hidden="true"></span>
-            </button>
-          </div>
-          <a class="site-header__logo" href="../index.html" aria-label="더랩 바이 블랑두 홈">
-            <img src="../images/used/dt_f631045ff291ac1837e3489ba8180401.png" alt="더랩 바이 블랑두">
-          </a>
-          <div class="site-header__part site-header__part--right">
-            <a class="icon-button" href="../index.html#product-section" aria-label="상품 검색">
-              <span class="icon icon--search" aria-hidden="true"></span>
-            </a>
-            <a class="icon-button site-header__account" href="../index.html" aria-label="로그인">
-              <span class="icon icon--account" aria-hidden="true"></span>
-            </a>
-            <a class="icon-button icon-button--bag" href="./cart.html" aria-label="장바구니">
-              <span class="icon icon--bag" aria-hidden="true"></span>
-              <span class="cart-badge" hidden>0</span>
-            </a>
-          </div>
-        </nav>
-      </div>
-    </header>
-
-    <div class="side-menu-layer" data-side-menu hidden>
-      <button class="side-menu-backdrop" type="button" aria-label="메뉴 닫기" tabindex="-1" data-side-menu-backdrop></button>
-      <aside class="side-menu" id="side-menu-dialog" role="dialog" aria-modal="true" aria-labelledby="side-menu-title" aria-hidden="true" inert data-side-menu-panel>
-        <div class="side-menu__header">
-          <div class="side-menu__account">
-            <p class="side-menu__title" id="side-menu-title">로그인 후 이용하세요</p>
-            <p class="side-menu__description">회원가입 후 다양한 혜택 받아가세요</p>
-            <div class="side-menu__account-actions">
-              <a class="side-menu__login" href="../index.html">로그인</a>
-              <a class="side-menu__signup" href="../index.html">회원가입</a>
-            </div>
-          </div>
-          <button class="side-menu__close" type="button" aria-label="메뉴 닫기" data-side-menu-close><span aria-hidden="true"></span></button>
-        </div>
-        <nav class="side-menu__content" aria-label="사이트 메뉴">
-          <ul class="side-menu__categories">
-            <li class="side-menu__category"><a href="../index.html#product-section">NEW &amp; BEST</a></li>
-            <li class="side-menu__category"><a href="./notice.html">공지사항</a></li>
-            <li class="side-menu__category"><a href="./faq.html">자주 묻는 질문</a></li>
-            <li class="side-menu__category"><a href="./cart.html">장바구니</a></li>
-          </ul>
-        </nav>
-      </aside>
-    </div>
+    <script src="../js/site-layout.js"></script>
 
     <main>
       <section class="cart-page" aria-labelledby="cart-page-title">

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>1:1 문의 | 더랩 바이 블랑두</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js" defer></script>
+    <script type="module" src="../js/cart.js"></script>
+    <script type="module" src="../js/pages/inquiry-page.js"></script>
+    <script type="module" src="../js/auth-ui.js"></script>
+  </head>
+  <body>
+    <script src="../js/site-layout.js"></script>
+
+    <main class="board-page board-page--inquiry">
+      <div class="board-page__inner">
+        <nav class="board-breadcrumb" aria-label="현재 위치">
+          <a href="../index.html">홈</a>
+          <span aria-hidden="true">/</span>
+          <span>게시판</span>
+          <span aria-hidden="true">/</span>
+          <strong aria-current="page">1:1 문의</strong>
+        </nav>
+
+        <section class="board-content" aria-labelledby="board-title">
+          <header class="board-heading">
+            <h1 class="board-heading__title" id="board-title">1:1 문의</h1>
+            <p class="board-heading__subtitle">궁금한 내용을 남겨주시면 확인 후 답변드리겠습니다.</p>
+          </header>
+
+          <p class="inquiry-login-message" data-inquiry-login-message hidden>로그인한 회원만 문의를 등록할 수 있습니다.</p>
+          <form class="inquiry-form" id="inquiry-form" data-inquiry-form hidden>
+            <div class="inquiry-form__field">
+              <label for="inquiry-question-type">질문 유형</label>
+              <select id="inquiry-question-type" name="questionType" required>
+                <option value="">질문 유형을 선택해 주세요</option>
+                <option value="배송문의">배송문의</option>
+                <option value="계정문의">계정문의</option>
+                <option value="교환/환불">교환/환불</option>
+                <option value="시스템오류">시스템오류</option>
+                <option value="기타">기타</option>
+              </select>
+            </div>
+            <div class="inquiry-form__field">
+              <label for="inquiry-title">제목</label>
+              <input id="inquiry-title" name="title" type="text" required maxlength="200">
+            </div>
+            <div class="inquiry-form__field">
+              <label for="inquiry-content">내용</label>
+              <textarea id="inquiry-content" name="content" rows="8" required maxlength="10000"></textarea>
+            </div>
+            <label class="inquiry-form__private">
+              <input name="isPrivate" type="checkbox">
+              <span>비공개 문의</span>
+            </label>
+            <div class="inquiry-form__actions">
+              <p class="inquiry-form__message" data-inquiry-form-message role="status" aria-live="polite"></p>
+              <button class="board-search__submit" type="submit">문의 등록</button>
+            </div>
+          </form>
+
+          <section class="inquiry-list-section" aria-labelledby="inquiry-list-title">
+            <h2 class="inquiry-list-section__title" id="inquiry-list-title">문의 목록</h2>
+            <p class="inquiry-list-section__message" data-inquiry-list-message role="status">목록을 불러오는 중입니다.</p>
+            <div class="board-table-scroll" tabindex="0" aria-label="1:1 문의 목록">
+              <table class="board-table board-table--inquiry">
+                <thead>
+                  <tr>
+                    <th scope="col">번호</th>
+                    <th scope="col">제목</th>
+                  <th scope="col">질문 유형</th>
+                    <th scope="col">작성자</th>
+                    <th scope="col">작성일</th>
+                  <th scope="col">상태</th>
+                  </tr>
+                </thead>
+                <tbody data-inquiry-list></tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+      </div>
+    </main>
+
+  </body>
+</html>
